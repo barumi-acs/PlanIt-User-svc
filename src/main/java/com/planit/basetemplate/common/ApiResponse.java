@@ -13,15 +13,24 @@ import java.time.LocalDateTime;
 @Getter
 @Builder
 public class ApiResponse<T> {
-    private String code;
+    private Integer code;
     private String message;
     private T data;
     private LocalDateTime timestamp;
 
     public static <T> ApiResponse<T> success(T data) {
         return ApiResponse.<T>builder()
-                .code("C2001")
-                .message("성공")
+                .code(200)
+                .message("Success")
+                .data(data)
+                .timestamp(LocalDateTime.now())
+                .build();
+    }
+    
+    public static <T> ApiResponse<T> success(int code, String message, T data) {
+        return ApiResponse.<T>builder()
+                .code(code)
+                .message(message)
                 .data(data)
                 .timestamp(LocalDateTime.now())
                 .build();

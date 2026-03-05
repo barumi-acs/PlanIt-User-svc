@@ -1,0 +1,25 @@
+# 로컬 빌드 JAR 파일을 사용하는 간단한 Dockerfile
+FROM eclipse-temurin:17-jre-alpine
+
+WORKDIR /app
+
+# Create non-root user
+RUN addgroup -S spring && adduser -S spring -G spring
+USER spring:spring
+
+# 로컬에서 빌드한 JAR 파일 복사
+COPY build/libs/*.jar app.jar
+
+# Expose ports
+EXPOSE 8080 9090
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=40s --retries=3 \
+  CMD wget --no-verbose --tries=1 --spider http://localhost:8080/actuator/health || exit 1
+
+ENTRYPOINT ["java", \
+  "-Djava.security.egd=file:/dev/./urandom", \
+  "-XX:+UseContainerSupport", \
+  "-XX:MaxRAMPercentage=75.0", \
+  "-jar", \
+  "app.jar"]

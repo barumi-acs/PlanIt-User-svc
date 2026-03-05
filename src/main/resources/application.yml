@@ -2,15 +2,20 @@
 #포트, DB 등 환경 설정은 이 파일에서 관리됩니다.
 
 server:
-  port: ${SERVER_PORT:8080}
+  port: ${SERVER_PORT:8081}
 
 spring:
   application:
-    name: planit-base-service
+    name: planit-user-service
+  
+  # Spring MVC 패턴 매칭 전략 (Swagger UI 호환성)
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
   
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: ${SPRING_DATASOURCE_URL:jdbc:mariadb://localhost:3306/base_db}
+    url: ${SPRING_DATASOURCE_URL:jdbc:mariadb://localhost:3306/planit_user_db}
     username: ${SPRING_DATASOURCE_USERNAME:root}
     password: ${SPRING_DATASOURCE_PASSWORD:root}
 
@@ -20,11 +25,58 @@ spring:
         physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
       ddl-auto: update
     show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+  
+  # Redis 설정 (Refresh Token 저장용)
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:}
+      timeout: 3000ms
+
+# JWT 설정
+jwt:
+  secret: ${JWT_SECRET:planit-user-service-secret-key-change-in-production-please}
+  access-token-expiration: 900000
+  refresh-token-expiration: 604800000
+  # JwtProvider.java 호환용 별칭
+  access-token-validity: 900000
+  refresh-token-validity: 604800000
+
+
+# AWS Cognito 설정
+aws:
+  region: ${AWS_REGION:ap-northeast-2}
+  credentials:
+    access-key: ${AWS_ACCESS_KEY:dummy}
+    secret-key: ${AWS_SECRET_KEY:dummy}
+  cognito:
+    user-pool-id: ${COGNITO_USER_POOL_ID:dummy}
+    client-id: ${COGNITO_CLIENT_ID:dummy}
+    region: ${AWS_REGION:ap-northeast-2}
+
+
+# Springdoc OpenAPI 설정
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json
 
 # /actuator/health 로 접속하면 서버 생존 여부 반환
 management:
   endpoints:
     web:
-      base-path: /api/v1/base/actuator
+      base-path: /api/v1/users/actuator
       exposure:
         include: health, info
+  endpoint:
+    health:
+      show-details: when-authorized

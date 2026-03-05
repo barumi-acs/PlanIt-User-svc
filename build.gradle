@@ -1,10 +1,8 @@
-//모든 라이브러리와 플러그인은 여기서 관리합니다.
-
 plugins {
-	id 'java'
-	id 'org.springframework.boot' version '3.5.11'
-	id 'io.spring.dependency-management' version '1.1.7'
-	id 'com.google.protobuf' version '0.9.4'
+    id 'java'
+    id 'org.springframework.boot' version '3.4.3'
+    id 'io.spring.dependency-management' version '1.1.7'
+    id 'com.google.protobuf' version '0.9.4'
 }
 
 group = 'com.planit'
@@ -12,50 +10,65 @@ version = '0.0.1-SNAPSHOT'
 description = 'Demo project for Spring Boot'
 
 java {
-	toolchain {
-		languageVersion = JavaLanguageVersion.of(17)
-	}
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
 }
 
 configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
 }
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	compileOnly 'org.projectlombok:lombok'
-	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
-	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    compileOnly 'org.projectlombok:lombok'
+    runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
-	//헬스체크 및 모니터링 (Actuator)
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
-    
-    //로깅 및 분산 추적 (Micrometer Tracing) - 로그에 [TraceID] 자동 부여
     implementation 'io.micrometer:micrometer-tracing-bridge-brave'
 
-	// gRPC 서버 및 클라이언트 자동 설정
     implementation 'net.devh:grpc-spring-boot-starter:2.15.0.RELEASE'
-    // Protobuf 메시지 및 스텁(Stub) 처리
     implementation 'io.grpc:grpc-stub:1.58.0'
     implementation 'io.grpc:grpc-protobuf:1.58.0'
-    // Java 9 이상 호환성(javax.annotation 대체)
     compileOnly 'org.apache.tomcat:annotations-api:6.0.53'
+    implementation 'io.grpc:grpc-services:1.58.0'
 
-    // [추가] grpcurl 통신을 위한 리플렉션 기능
-    implementation 'io.grpc:grpc-services:1.58.0' 
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+
+    implementation 'io.jsonwebtoken:jjwt-api:0.12.3'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.3'
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.3'
+
+    implementation 'com.github.f4b6a3:uuid-creator:5.3.3'
+
+    implementation platform('software.amazon.awssdk:bom:2.20.26')
+    implementation 'software.amazon.awssdk:cognitoidentityprovider'
+    implementation 'software.amazon.awssdk:auth'
+
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    testImplementation 'org.springframework.security:spring-security-test'
+
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.7.0'
 }
 
 tasks.named('test') {
-	useJUnitPlatform()
+    useJUnitPlatform()
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
 }
 
 sourceSets {
@@ -67,24 +80,14 @@ sourceSets {
     }
 }
 
-//Protobuf 컴파일 태스크 추가
-// protobuf {
-//     protoc { artifact = "com.google.protobuf:protoc:3.24.0" }
-//     plugins { grpc { artifact = "io.grpc:protoc-gen-grpc-java:1.58.0" } }
-//     generateProtoTasks { all()*.plugins { grpc {} } }
-// }
-
-// 맥북 실행이 안되서 아키텍쳐 맞는거로 교체
 protobuf {
-    protoc { 
-        // 맥북(Apple Silicon) 전용 컴파일러 지정
-        artifact = "com.google.protobuf:protoc:3.24.0:osx-aarch_64" 
+    protoc {
+        artifact = "com.google.protobuf:protoc:3.24.0"
     }
-    plugins { 
-        grpc { 
-            // 맥북 전용 gRPC 플러그인 지정
-            artifact = "io.grpc:protoc-gen-grpc-java:1.58.0:osx-aarch_64" 
-        } 
+    plugins {
+        grpc {
+            artifact = "io.grpc:protoc-gen-grpc-java:1.58.0"
+        }
     }
     generateProtoTasks { all()*.plugins { grpc {} } }
 }
