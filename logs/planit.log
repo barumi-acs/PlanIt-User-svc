@@ -1674,3 +1674,704 @@ This generated password is for development use only. Your security configuration
 2026-03-05 17:49:40 WARN  [69a943a403f632d2c028a37090b37d43] [http-nio-8081-exec-5] c.p.userservice.service.AuthService : Redis is not available, skipping refresh token storage: Unable to connect to Redis
 2026-03-05 17:49:44 INFO  [69a943a896e1789da7a5b2ad6a346d23] [http-nio-8081-exec-8] c.p.u.controller.FriendController : Get friends: 019cbd30-3bf9-7a4e-a087-1a94a7bcb4e5
 2026-03-05 17:49:44 INFO  [69a943a8babc59da3aeec7beaa5a608e] [http-nio-8081-exec-7] c.p.u.controller.FriendController : Get received requests: 019cbd30-3bf9-7a4e-a087-1a94a7bcb4e5
+2026-03-05 18:31:07 INFO  [] [background-preinit] o.h.validator.internal.util.Version : HV000001: Hibernate Validator 8.0.2.Final
+2026-03-05 18:31:07 INFO  [] [main] c.p.b.PlanitBaseTemplateApplication : Starting PlanitBaseTemplateApplication using Java 17.0.16 with PID 36832 (/Users/jybill01/Folder/02_Study/03_AWS_Cloud_School/03_Project/03_project/Full/PlanIt-User-svc/build/classes/java/main started by jybill01 in /Users/jybill01/Folder/02_Study/03_AWS_Cloud_School/03_Project/03_project/Full/PlanIt-User-svc)
+2026-03-05 18:31:07 INFO  [] [main] c.p.b.PlanitBaseTemplateApplication : No active profile set, falling back to 1 default profile: "default"
+2026-03-05 18:31:08 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-05 18:31:08 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-05 18:31:08 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 69 ms. Found 6 JPA repository interfaces.
+2026-03-05 18:31:08 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-05 18:31:08 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-03-05 18:31:08 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2026-03-05 18:31:08 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port 8081 (http)
+2026-03-05 18:31:08 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Initializing ProtocolHandler ["http-nio-8081"]
+2026-03-05 18:31:08 INFO  [] [main] o.a.catalina.core.StandardService : Starting service [Tomcat]
+2026-03-05 18:31:08 INFO  [] [main] o.a.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2026-03-05 18:31:08 INFO  [] [main] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext
+2026-03-05 18:31:08 INFO  [] [main] o.s.b.w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 888 ms
+2026-03-05 18:31:08 INFO  [] [main] o.h.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-05 18:31:08 INFO  [] [main] org.hibernate.Version : HHH000412: Hibernate ORM core version 6.6.8.Final
+2026-03-05 18:31:08 INFO  [] [main] o.h.c.i.RegionFactoryInitiator : HHH000026: Second-level cache disabled
+2026-03-05 18:31:08 INFO  [] [main] o.s.o.j.p.SpringPersistenceUnitInfo : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-05 18:31:08 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
+2026-03-05 18:31:09 WARN  [] [main] o.m.jdbc.message.server.ErrorPacket : Error: 1049-42000: Unknown database 'planit_user_db'
+2026-03-05 18:31:10 WARN  [] [main] o.h.e.jdbc.spi.SqlExceptionHelper : SQL Error: 1049, SQLState: 42000
+2026-03-05 18:31:10 ERROR [] [main] o.h.e.jdbc.spi.SqlExceptionHelper : (conn=1259) Unknown database 'planit_user_db'
+2026-03-05 18:31:10 WARN  [] [main] o.h.e.j.e.i.JdbcEnvironmentInitiator : HHH000342: Could not obtain connection to query metadata
+org.hibernate.exception.SQLGrammarException: unable to obtain isolated JDBC connection [(conn=1259) Unknown database 'planit_user_db'] [n/a]
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:91)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:116)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:320)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:129)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:81)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:226)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:194)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:171)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1442)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1513)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1859)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1808)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:346)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.planit.basetemplate.PlanitBaseTemplateApplication.main(PlanitBaseTemplateApplication.java:18)
+Caused by: java.sql.SQLSyntaxErrorException: (conn=1259) Unknown database 'planit_user_db'
+	at org.mariadb.jdbc.export.ExceptionFactory.createException(ExceptionFactory.java:289)
+	at org.mariadb.jdbc.export.ExceptionFactory.create(ExceptionFactory.java:378)
+	at org.mariadb.jdbc.client.impl.StandardClient.authenticationHandler(StandardClient.java:306)
+	at org.mariadb.jdbc.client.impl.StandardClient.<init>(StandardClient.java:226)
+	at org.mariadb.jdbc.Driver.connect(Driver.java:68)
+	at org.mariadb.jdbc.Driver.connect(Driver.java:92)
+	at org.mariadb.jdbc.Driver.connect(Driver.java:26)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:126)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:467)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:61)
+	... 35 common frames omitted
+2026-03-05 18:31:10 ERROR [] [main] o.s.o.j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+2026-03-05 18:31:10 WARN  [] [main] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+2026-03-05 18:31:10 INFO  [] [main] o.a.catalina.core.StandardService : Stopping service [Tomcat]
+2026-03-05 18:31:10 INFO  [] [main] o.s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-03-05 18:31:10 ERROR [] [main] o.s.boot.SpringApplication : Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1812)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:346)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.planit.basetemplate.PlanitBaseTemplateApplication.main(PlanitBaseTemplateApplication.java:18)
+Caused by: org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:276)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:226)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:194)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:171)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1442)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1513)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1859)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1808)
+	... 15 common frames omitted
+Caused by: org.hibernate.HibernateException: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.determineDialect(DialectFactoryImpl.java:191)
+	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.buildDialect(DialectFactoryImpl.java:87)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentWithDefaults(JdbcEnvironmentInitiator.java:181)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:392)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:129)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:81)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	... 30 common frames omitted
+2026-03-05 18:32:56 INFO  [] [background-preinit] o.h.validator.internal.util.Version : HV000001: Hibernate Validator 8.0.2.Final
+2026-03-05 18:32:56 INFO  [] [main] c.p.b.PlanitBaseTemplateApplication : Starting PlanitBaseTemplateApplication using Java 17.0.16 with PID 37304 (/Users/jybill01/Folder/02_Study/03_AWS_Cloud_School/03_Project/03_project/Full/PlanIt-User-svc/build/classes/java/main started by jybill01 in /Users/jybill01/Folder/02_Study/03_AWS_Cloud_School/03_Project/03_project/Full/PlanIt-User-svc)
+2026-03-05 18:32:56 INFO  [] [main] c.p.b.PlanitBaseTemplateApplication : No active profile set, falling back to 1 default profile: "default"
+2026-03-05 18:32:56 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-05 18:32:56 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-05 18:32:57 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 92 ms. Found 6 JPA repository interfaces.
+2026-03-05 18:32:57 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-05 18:32:57 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-03-05 18:32:57 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2026-03-05 18:32:57 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port 8081 (http)
+2026-03-05 18:32:57 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Initializing ProtocolHandler ["http-nio-8081"]
+2026-03-05 18:32:57 INFO  [] [main] o.a.catalina.core.StandardService : Starting service [Tomcat]
+2026-03-05 18:32:57 INFO  [] [main] o.a.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2026-03-05 18:32:57 INFO  [] [main] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext
+2026-03-05 18:32:57 INFO  [] [main] o.s.b.w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1094 ms
+2026-03-05 18:32:57 INFO  [] [main] o.h.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-05 18:32:57 INFO  [] [main] org.hibernate.Version : HHH000412: Hibernate ORM core version 6.6.8.Final
+2026-03-05 18:32:57 INFO  [] [main] o.h.c.i.RegionFactoryInitiator : HHH000026: Second-level cache disabled
+2026-03-05 18:32:58 INFO  [] [main] o.s.o.j.p.SpringPersistenceUnitInfo : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-05 18:32:58 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
+2026-03-05 18:32:58 INFO  [] [main] com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@4ebb7bab
+2026-03-05 18:32:58 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed.
+2026-03-05 18:32:58 INFO  [] [main] o.hibernate.orm.connections.pooling : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 12.2.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-05 18:32:58 INFO  [] [main] o.h.e.t.j.p.i.JtaPlatformInitiator : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-05 18:32:59 INFO  [] [main] o.s.o.j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-05 18:32:59 INFO  [] [main] o.s.d.j.r.query.QueryEnhancerFactory : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-05 18:33:00 WARN  [] [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-05 18:33:00 WARN  [] [main] o.s.b.a.s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: d8daf17b-5bdd-4f03-a080-43180bd7f9c7
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-03-05 18:33:00 INFO  [] [main] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-03-05 18:33:00 INFO  [] [main] n.d.b.g.c.a.GrpcClientAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyChannelFactory + InProcessChannelFactory
+2026-03-05 18:33:00 INFO  [] [main] o.s.b.a.e.web.EndpointLinksResolver : Exposing 2 endpoints beneath base path '/api/v1/users/actuator'
+2026-03-05 18:33:00 INFO  [] [main] n.d.b.g.s.a.GrpcServerFactoryAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyGrpcServerFactory
+2026-03-05 18:33:01 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Starting ProtocolHandler ["http-nio-8081"]
+2026-03-05 18:33:01 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat started on port 8081 (http) with context path '/'
+2026-03-05 18:33:01 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
+2026-03-05 18:33:01 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
+2026-03-05 18:33:01 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
+2026-03-05 18:33:01 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9090
+2026-03-05 18:33:01 INFO  [] [main] c.p.b.PlanitBaseTemplateApplication : Started PlanitBaseTemplateApplication in 4.962 seconds (process running for 5.431)
+2026-03-05 18:41:22 INFO  [] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-05 18:41:22 INFO  [] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet'
+2026-03-05 18:41:22 INFO  [] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet : Completed initialization in 64 ms
+2026-03-05 18:41:22 INFO  [69a94fc2492cd9886bdfe97b15dd954b] [http-nio-8081-exec-1] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 18:41:22 INFO  [69a94fc2492cd9886bdfe97b15dd954b] [http-nio-8081-exec-1] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 18:41:57 INFO  [69a94fe43f23c11d553803b1b9655797] [http-nio-8081-exec-4] c.p.u.controller.AuthController : Login request
+2026-03-05 18:41:57 INFO  [69a94fe43f23c11d553803b1b9655797] [http-nio-8081-exec-4] c.p.u.security.CognitoService : Local profile detected - extracting sub from idToken directly
+2026-03-05 18:41:57 INFO  [69a94fe43f23c11d553803b1b9655797] [http-nio-8081-exec-4] c.p.u.security.CognitoService : Token payload: {"at_hash":"0EIM5ItCgPBgUHL2UZSGqg","sub":"74181d9c-7001-70dd-c3e9-d2697a482c19","cognito:groups":["ap-northeast-2_GKpckavjT_Google"],"email_verified":false,"iss":"https:\/\/cognito-idp.ap-northeast-2.amazonaws.com\/ap-northeast-2_GKpckavjT","cognito:username":"google_107679341415152317616","origin_jti":"b19cd35f-61eb-4108-bbbe-75ef0df89794","aud":"6j5ajq8p3b7d894qt5msp4hair","identities":[{"dateCreated":"1772701255713","userId":"107679341415152317616","providerName":"Google","providerType":"Google","issuer":null,"primary":"true"}],"token_use":"id","auth_time":1772703706,"exp":1772707316,"iat":1772703716,"jti":"4f7af0c8-c36c-472b-ae10-09ee6679c468","email":"jdragon0151@gmail.com"}
+2026-03-05 18:41:57 INFO  [69a94fe43f23c11d553803b1b9655797] [http-nio-8081-exec-4] c.p.u.security.CognitoService : Extracted sub from token: 74181d9c-7001-70dd-c3e9-d2697a482c19
+2026-03-05 18:41:57 INFO  [69a94fe5515688807a5ebe8fb4b24789] [http-nio-8081-exec-6] c.p.u.controller.AuthController : Check withdrawn request
+2026-03-05 18:41:57 INFO  [69a94fe5515688807a5ebe8fb4b24789] [http-nio-8081-exec-6] c.p.u.security.CognitoService : Extracted email from token: jdragon0151@gmail.com
+2026-03-05 18:41:57 INFO  [69a94fe5515688807a5ebe8fb4b24789] [http-nio-8081-exec-6] c.p.userservice.service.AuthService : Check withdrawn for email: jdragon0151@gmail.com
+2026-03-05 18:41:57 INFO  [69a94fe5023df4242b91216828599aaa] [http-nio-8081-exec-7] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 18:41:57 INFO  [69a94fe5023df4242b91216828599aaa] [http-nio-8081-exec-7] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 18:42:06 INFO  [69a94fee5c5260391670be4ef0f0a7f8] [http-nio-8081-exec-8] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 18:42:06 INFO  [69a94fee5c5260391670be4ef0f0a7f8] [http-nio-8081-exec-8] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 18:42:07 INFO  [69a94fefddd694f76132a404db7ce667] [http-nio-8081-exec-9] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 18:42:07 INFO  [69a94fefddd694f76132a404db7ce667] [http-nio-8081-exec-9] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 18:42:07 INFO  [69a94fef77699222c5220f78d1912336] [http-nio-8081-exec-10] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 18:42:07 INFO  [69a94fef77699222c5220f78d1912336] [http-nio-8081-exec-10] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 18:42:07 INFO  [69a94fefd045495c6d8db2bf2212ef2e] [http-nio-8081-exec-1] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 18:42:07 INFO  [69a94fefd045495c6d8db2bf2212ef2e] [http-nio-8081-exec-1] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 18:42:08 INFO  [69a94ff08d45574ffbc1701cc476cdea] [http-nio-8081-exec-2] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 18:42:08 INFO  [69a94ff08d45574ffbc1701cc476cdea] [http-nio-8081-exec-2] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 18:42:08 INFO  [69a94ff0381786130fedf0338810607c] [http-nio-8081-exec-3] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 18:42:08 INFO  [69a94ff0381786130fedf0338810607c] [http-nio-8081-exec-3] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 18:42:08 INFO  [69a94ff0e0f0593ab05d33b1dd96e55d] [http-nio-8081-exec-4] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 18:42:08 INFO  [69a94ff0e0f0593ab05d33b1dd96e55d] [http-nio-8081-exec-4] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 18:42:09 INFO  [69a94ff1559fc88bf3ac33463396d348] [http-nio-8081-exec-5] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 18:42:09 INFO  [69a94ff1559fc88bf3ac33463396d348] [http-nio-8081-exec-5] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 18:42:09 INFO  [69a94ff149744b01eee79ede6bc703bf] [http-nio-8081-exec-6] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 18:42:09 INFO  [69a94ff149744b01eee79ede6bc703bf] [http-nio-8081-exec-6] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 18:42:09 INFO  [69a94ff1b705fd71b016a8dd802bc0bb] [http-nio-8081-exec-7] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 18:42:09 INFO  [69a94ff1b705fd71b016a8dd802bc0bb] [http-nio-8081-exec-7] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 18:43:45 INFO  [69a95051f3bba63e424bfb34f5725928] [http-nio-8081-exec-9] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 18:43:45 INFO  [69a95051f3bba63e424bfb34f5725928] [http-nio-8081-exec-9] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 18:43:53 INFO  [69a950587714ac3d46ab87582a14762e] [http-nio-8081-exec-1] c.p.u.controller.AuthController : Signup request: Test
+2026-03-05 18:43:53 INFO  [69a950587714ac3d46ab87582a14762e] [http-nio-8081-exec-1] c.p.u.security.CognitoService : Local profile detected - extracting sub from idToken directly
+2026-03-05 18:43:53 INFO  [69a950587714ac3d46ab87582a14762e] [http-nio-8081-exec-1] c.p.u.security.CognitoService : Token payload: {"at_hash":"0EIM5ItCgPBgUHL2UZSGqg","sub":"74181d9c-7001-70dd-c3e9-d2697a482c19","cognito:groups":["ap-northeast-2_GKpckavjT_Google"],"email_verified":false,"iss":"https:\/\/cognito-idp.ap-northeast-2.amazonaws.com\/ap-northeast-2_GKpckavjT","cognito:username":"google_107679341415152317616","origin_jti":"b19cd35f-61eb-4108-bbbe-75ef0df89794","aud":"6j5ajq8p3b7d894qt5msp4hair","identities":[{"dateCreated":"1772701255713","userId":"107679341415152317616","providerName":"Google","providerType":"Google","issuer":null,"primary":"true"}],"token_use":"id","auth_time":1772703706,"exp":1772707316,"iat":1772703716,"jti":"4f7af0c8-c36c-472b-ae10-09ee6679c468","email":"jdragon0151@gmail.com"}
+2026-03-05 18:43:53 INFO  [69a950587714ac3d46ab87582a14762e] [http-nio-8081-exec-1] c.p.u.security.CognitoService : Extracted sub from token: 74181d9c-7001-70dd-c3e9-d2697a482c19
+2026-03-05 18:45:43 INFO  [69a950c750aebef62d55d4364d59e9a4] [http-nio-8081-exec-3] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 18:45:43 INFO  [69a950c750aebef62d55d4364d59e9a4] [http-nio-8081-exec-3] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 18:46:04 INFO  [69a950dc1ed2be2671a46ba50eb95252] [http-nio-8081-exec-5] c.p.u.controller.AuthController : Login request
+2026-03-05 18:46:04 INFO  [69a950dc1ed2be2671a46ba50eb95252] [http-nio-8081-exec-5] c.p.u.security.CognitoService : Local profile detected - extracting sub from idToken directly
+2026-03-05 18:46:04 INFO  [69a950dc1ed2be2671a46ba50eb95252] [http-nio-8081-exec-5] c.p.u.security.CognitoService : Token payload: {"at_hash":"UIZzFSWFSppT6pZW5Z_18g","sub":"0408fd3c-8071-70a2-7823-ca64874e5472","cognito:groups":["ap-northeast-2_GKpckavjT_Google"],"email_verified":false,"iss":"https:\/\/cognito-idp.ap-northeast-2.amazonaws.com\/ap-northeast-2_GKpckavjT","cognito:username":"google_107679341415152317616","origin_jti":"071b51ba-f946-45bd-8a02-b0bbd930c08a","aud":"6j5ajq8p3b7d894qt5msp4hair","identities":[{"dateCreated":"1772703963601","userId":"107679341415152317616","providerName":"Google","providerType":"Google","issuer":null,"primary":"true"}],"token_use":"id","auth_time":1772703964,"exp":1772707564,"iat":1772703964,"jti":"56fd28df-8ddb-4606-a743-31a6b0bc458c","email":"jdragon0151@gmail.com"}
+2026-03-05 18:46:04 INFO  [69a950dc1ed2be2671a46ba50eb95252] [http-nio-8081-exec-5] c.p.u.security.CognitoService : Extracted sub from token: 0408fd3c-8071-70a2-7823-ca64874e5472
+2026-03-05 18:46:04 INFO  [69a950dc537413acf210b61b4fe94a60] [http-nio-8081-exec-7] c.p.u.controller.AuthController : Check withdrawn request
+2026-03-05 18:46:04 INFO  [69a950dc537413acf210b61b4fe94a60] [http-nio-8081-exec-7] c.p.u.security.CognitoService : Extracted email from token: jdragon0151@gmail.com
+2026-03-05 18:46:04 INFO  [69a950dc537413acf210b61b4fe94a60] [http-nio-8081-exec-7] c.p.userservice.service.AuthService : Check withdrawn for email: jdragon0151@gmail.com
+2026-03-05 18:46:05 INFO  [69a950dd3f33da58c13313798346b306] [http-nio-8081-exec-8] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 18:46:05 INFO  [69a950dd3f33da58c13313798346b306] [http-nio-8081-exec-8] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 18:46:11 INFO  [69a950e3b87c20cc4dce008167ec68a2] [http-nio-8081-exec-10] c.p.u.controller.AuthController : Signup request: test
+2026-03-05 18:46:11 INFO  [69a950e3b87c20cc4dce008167ec68a2] [http-nio-8081-exec-10] c.p.u.security.CognitoService : Local profile detected - extracting sub from idToken directly
+2026-03-05 18:46:11 INFO  [69a950e3b87c20cc4dce008167ec68a2] [http-nio-8081-exec-10] c.p.u.security.CognitoService : Token payload: {"at_hash":"UIZzFSWFSppT6pZW5Z_18g","sub":"0408fd3c-8071-70a2-7823-ca64874e5472","cognito:groups":["ap-northeast-2_GKpckavjT_Google"],"email_verified":false,"iss":"https:\/\/cognito-idp.ap-northeast-2.amazonaws.com\/ap-northeast-2_GKpckavjT","cognito:username":"google_107679341415152317616","origin_jti":"071b51ba-f946-45bd-8a02-b0bbd930c08a","aud":"6j5ajq8p3b7d894qt5msp4hair","identities":[{"dateCreated":"1772703963601","userId":"107679341415152317616","providerName":"Google","providerType":"Google","issuer":null,"primary":"true"}],"token_use":"id","auth_time":1772703964,"exp":1772707564,"iat":1772703964,"jti":"56fd28df-8ddb-4606-a743-31a6b0bc458c","email":"jdragon0151@gmail.com"}
+2026-03-05 18:46:11 INFO  [69a950e3b87c20cc4dce008167ec68a2] [http-nio-8081-exec-10] c.p.u.security.CognitoService : Extracted sub from token: 0408fd3c-8071-70a2-7823-ca64874e5472
+2026-03-05 18:48:53 INFO  [69a95185c124c606f8f1c48b33cf20f0] [http-nio-8081-exec-2] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 18:48:53 INFO  [69a95185c124c606f8f1c48b33cf20f0] [http-nio-8081-exec-2] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 18:49:08 INFO  [69a95194e7fb96271abfe6dd5227ae90] [http-nio-8081-exec-4] c.p.u.controller.AuthController : Login request
+2026-03-05 18:49:08 INFO  [69a95194e7fb96271abfe6dd5227ae90] [http-nio-8081-exec-4] c.p.u.security.CognitoService : Local profile detected - extracting sub from idToken directly
+2026-03-05 18:49:08 INFO  [69a95194e7fb96271abfe6dd5227ae90] [http-nio-8081-exec-4] c.p.u.security.CognitoService : Token payload: {"at_hash":"clJ78gxFJayw1-wLYCaxxA","sub":"04480d2c-1051-702a-08f3-8c51cf667023","cognito:groups":["ap-northeast-2_GKpckavjT_Google"],"email_verified":false,"iss":"https:\/\/cognito-idp.ap-northeast-2.amazonaws.com\/ap-northeast-2_GKpckavjT","cognito:username":"google_107679341415152317616","origin_jti":"7d179f04-ab59-42e0-933e-8cb2b0961a9f","aud":"6j5ajq8p3b7d894qt5msp4hair","identities":[{"dateCreated":"1772704137435","userId":"107679341415152317616","providerName":"Google","providerType":"Google","issuer":null,"primary":"true"}],"token_use":"id","auth_time":1772704138,"exp":1772707748,"iat":1772704148,"jti":"0aa6dd8a-68b6-4c10-adb6-671b2fe6794d","email":"jdragon0151@gmail.com"}
+2026-03-05 18:49:08 INFO  [69a95194e7fb96271abfe6dd5227ae90] [http-nio-8081-exec-4] c.p.u.security.CognitoService : Extracted sub from token: 04480d2c-1051-702a-08f3-8c51cf667023
+2026-03-05 18:49:08 INFO  [69a951949fe6670fb623a1d9aa4019f1] [http-nio-8081-exec-6] c.p.u.controller.AuthController : Check withdrawn request
+2026-03-05 18:49:08 INFO  [69a951949fe6670fb623a1d9aa4019f1] [http-nio-8081-exec-6] c.p.u.security.CognitoService : Extracted email from token: jdragon0151@gmail.com
+2026-03-05 18:49:08 INFO  [69a951949fe6670fb623a1d9aa4019f1] [http-nio-8081-exec-6] c.p.userservice.service.AuthService : Check withdrawn for email: jdragon0151@gmail.com
+2026-03-05 18:49:09 INFO  [69a95195c451fd1ebff8032c834aee9c] [http-nio-8081-exec-7] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 18:49:09 INFO  [69a95195c451fd1ebff8032c834aee9c] [http-nio-8081-exec-7] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 18:49:18 INFO  [69a9519e9eaa8c21a690bc348f879848] [http-nio-8081-exec-9] c.p.u.controller.AuthController : Signup request: test
+2026-03-05 18:49:18 INFO  [69a9519e9eaa8c21a690bc348f879848] [http-nio-8081-exec-9] c.p.u.security.CognitoService : Local profile detected - extracting sub from idToken directly
+2026-03-05 18:49:18 INFO  [69a9519e9eaa8c21a690bc348f879848] [http-nio-8081-exec-9] c.p.u.security.CognitoService : Token payload: {"at_hash":"clJ78gxFJayw1-wLYCaxxA","sub":"04480d2c-1051-702a-08f3-8c51cf667023","cognito:groups":["ap-northeast-2_GKpckavjT_Google"],"email_verified":false,"iss":"https:\/\/cognito-idp.ap-northeast-2.amazonaws.com\/ap-northeast-2_GKpckavjT","cognito:username":"google_107679341415152317616","origin_jti":"7d179f04-ab59-42e0-933e-8cb2b0961a9f","aud":"6j5ajq8p3b7d894qt5msp4hair","identities":[{"dateCreated":"1772704137435","userId":"107679341415152317616","providerName":"Google","providerType":"Google","issuer":null,"primary":"true"}],"token_use":"id","auth_time":1772704138,"exp":1772707748,"iat":1772704148,"jti":"0aa6dd8a-68b6-4c10-adb6-671b2fe6794d","email":"jdragon0151@gmail.com"}
+2026-03-05 18:49:18 INFO  [69a9519e9eaa8c21a690bc348f879848] [http-nio-8081-exec-9] c.p.u.security.CognitoService : Extracted sub from token: 04480d2c-1051-702a-08f3-8c51cf667023
+2026-03-05 18:49:36 INFO  [69a951b09c959fda94463920ade35768] [http-nio-8081-exec-1] c.p.u.controller.AuthController : Login request
+2026-03-05 18:49:36 INFO  [69a951b09c959fda94463920ade35768] [http-nio-8081-exec-1] c.p.u.security.CognitoService : Local profile detected - extracting sub from idToken directly
+2026-03-05 18:49:36 INFO  [69a951b09c959fda94463920ade35768] [http-nio-8081-exec-1] c.p.u.security.CognitoService : Token payload: {"at_hash":"nlGNzeQXWs1YqVqmhSjCmQ","sub":"04480d2c-1051-702a-08f3-8c51cf667023","cognito:groups":["ap-northeast-2_GKpckavjT_Google"],"email_verified":false,"iss":"https:\/\/cognito-idp.ap-northeast-2.amazonaws.com\/ap-northeast-2_GKpckavjT","cognito:username":"google_107679341415152317616","origin_jti":"8a4340a6-2cac-4d54-ab4a-7ca87937c1a1","aud":"6j5ajq8p3b7d894qt5msp4hair","identities":[{"dateCreated":"1772704137435","userId":"107679341415152317616","providerName":"Google","providerType":"Google","issuer":null,"primary":"true"}],"token_use":"id","auth_time":1772704176,"exp":1772707776,"iat":1772704176,"jti":"2ca7dc99-65b1-48a1-8511-33707c1422ec","email":"jdragon0151@gmail.com"}
+2026-03-05 18:49:36 INFO  [69a951b09c959fda94463920ade35768] [http-nio-8081-exec-1] c.p.u.security.CognitoService : Extracted sub from token: 04480d2c-1051-702a-08f3-8c51cf667023
+2026-03-05 18:49:36 INFO  [69a951b0fdc7fafd92872d654196cb8b] [http-nio-8081-exec-3] c.p.u.controller.AuthController : Check withdrawn request
+2026-03-05 18:49:36 INFO  [69a951b0fdc7fafd92872d654196cb8b] [http-nio-8081-exec-3] c.p.u.security.CognitoService : Extracted email from token: jdragon0151@gmail.com
+2026-03-05 18:49:36 INFO  [69a951b0fdc7fafd92872d654196cb8b] [http-nio-8081-exec-3] c.p.userservice.service.AuthService : Check withdrawn for email: jdragon0151@gmail.com
+2026-03-05 18:49:37 INFO  [69a951b1cb88422ab90944efa8456813] [http-nio-8081-exec-4] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 18:49:37 INFO  [69a951b1cb88422ab90944efa8456813] [http-nio-8081-exec-4] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 18:49:42 INFO  [69a951b6b0dc3cddae1ba2a68f684e3d] [http-nio-8081-exec-6] c.p.u.controller.AuthController : Signup request: test
+2026-03-05 18:49:42 INFO  [69a951b6b0dc3cddae1ba2a68f684e3d] [http-nio-8081-exec-6] c.p.u.security.CognitoService : Local profile detected - extracting sub from idToken directly
+2026-03-05 18:49:42 INFO  [69a951b6b0dc3cddae1ba2a68f684e3d] [http-nio-8081-exec-6] c.p.u.security.CognitoService : Token payload: {"at_hash":"nlGNzeQXWs1YqVqmhSjCmQ","sub":"04480d2c-1051-702a-08f3-8c51cf667023","cognito:groups":["ap-northeast-2_GKpckavjT_Google"],"email_verified":false,"iss":"https:\/\/cognito-idp.ap-northeast-2.amazonaws.com\/ap-northeast-2_GKpckavjT","cognito:username":"google_107679341415152317616","origin_jti":"8a4340a6-2cac-4d54-ab4a-7ca87937c1a1","aud":"6j5ajq8p3b7d894qt5msp4hair","identities":[{"dateCreated":"1772704137435","userId":"107679341415152317616","providerName":"Google","providerType":"Google","issuer":null,"primary":"true"}],"token_use":"id","auth_time":1772704176,"exp":1772707776,"iat":1772704176,"jti":"2ca7dc99-65b1-48a1-8511-33707c1422ec","email":"jdragon0151@gmail.com"}
+2026-03-05 18:49:42 INFO  [69a951b6b0dc3cddae1ba2a68f684e3d] [http-nio-8081-exec-6] c.p.u.security.CognitoService : Extracted sub from token: 04480d2c-1051-702a-08f3-8c51cf667023
+2026-03-05 18:50:25 INFO  [69a951e11d5a32613c290162464e6716] [http-nio-8081-exec-8] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 18:50:25 INFO  [69a951e11d5a32613c290162464e6716] [http-nio-8081-exec-8] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 18:50:55 INFO  [69a951ff3fbe23800cc13e9cef935ed5] [http-nio-8081-exec-10] c.p.u.controller.AuthController : Login request
+2026-03-05 18:50:55 INFO  [69a951ff3fbe23800cc13e9cef935ed5] [http-nio-8081-exec-10] c.p.u.security.CognitoService : Local profile detected - extracting sub from idToken directly
+2026-03-05 18:50:55 INFO  [69a951ff3fbe23800cc13e9cef935ed5] [http-nio-8081-exec-10] c.p.u.security.CognitoService : Token payload: {"at_hash":"vw1AYwGVc5sHhOKqfeyxEQ","sub":"1448ad6c-9011-7045-f91d-2dadd8a53c06","cognito:groups":["ap-northeast-2_GKpckavjT_Google"],"email_verified":false,"iss":"https:\/\/cognito-idp.ap-northeast-2.amazonaws.com\/ap-northeast-2_GKpckavjT","cognito:username":"google_107679341415152317616","origin_jti":"6d11e089-4038-4cfc-acf0-7b7307acabb4","aud":"6j5ajq8p3b7d894qt5msp4hair","identities":[{"dateCreated":"1772704243818","userId":"107679341415152317616","providerName":"Google","providerType":"Google","issuer":null,"primary":"true"}],"token_use":"id","auth_time":1772704244,"exp":1772707855,"iat":1772704255,"jti":"c2fd0e86-34a8-4d74-9b1a-69c288365cf8","email":"jdragon0151@gmail.com"}
+2026-03-05 18:50:55 INFO  [69a951ff3fbe23800cc13e9cef935ed5] [http-nio-8081-exec-10] c.p.u.security.CognitoService : Extracted sub from token: 1448ad6c-9011-7045-f91d-2dadd8a53c06
+2026-03-05 18:50:55 INFO  [69a951fff7499b488eed6d5958e54b3a] [http-nio-8081-exec-2] c.p.u.controller.AuthController : Check withdrawn request
+2026-03-05 18:50:55 INFO  [69a951fff7499b488eed6d5958e54b3a] [http-nio-8081-exec-2] c.p.u.security.CognitoService : Extracted email from token: jdragon0151@gmail.com
+2026-03-05 18:50:55 INFO  [69a951fff7499b488eed6d5958e54b3a] [http-nio-8081-exec-2] c.p.userservice.service.AuthService : Check withdrawn for email: jdragon0151@gmail.com
+2026-03-05 18:50:55 INFO  [69a951ff8868d85191bbabd28a829623] [http-nio-8081-exec-3] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 18:50:55 INFO  [69a951ff8868d85191bbabd28a829623] [http-nio-8081-exec-3] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 18:51:03 INFO  [69a95207d94a19098ef7f3cb7d6aff51] [http-nio-8081-exec-5] c.p.u.controller.AuthController : Signup request: test
+2026-03-05 18:51:03 INFO  [69a95207d94a19098ef7f3cb7d6aff51] [http-nio-8081-exec-5] c.p.u.security.CognitoService : Local profile detected - extracting sub from idToken directly
+2026-03-05 18:51:03 INFO  [69a95207d94a19098ef7f3cb7d6aff51] [http-nio-8081-exec-5] c.p.u.security.CognitoService : Token payload: {"at_hash":"vw1AYwGVc5sHhOKqfeyxEQ","sub":"1448ad6c-9011-7045-f91d-2dadd8a53c06","cognito:groups":["ap-northeast-2_GKpckavjT_Google"],"email_verified":false,"iss":"https:\/\/cognito-idp.ap-northeast-2.amazonaws.com\/ap-northeast-2_GKpckavjT","cognito:username":"google_107679341415152317616","origin_jti":"6d11e089-4038-4cfc-acf0-7b7307acabb4","aud":"6j5ajq8p3b7d894qt5msp4hair","identities":[{"dateCreated":"1772704243818","userId":"107679341415152317616","providerName":"Google","providerType":"Google","issuer":null,"primary":"true"}],"token_use":"id","auth_time":1772704244,"exp":1772707855,"iat":1772704255,"jti":"c2fd0e86-34a8-4d74-9b1a-69c288365cf8","email":"jdragon0151@gmail.com"}
+2026-03-05 18:51:03 INFO  [69a95207d94a19098ef7f3cb7d6aff51] [http-nio-8081-exec-5] c.p.u.security.CognitoService : Extracted sub from token: 1448ad6c-9011-7045-f91d-2dadd8a53c06
+2026-03-05 19:00:39 INFO  [69a95447bbb974e8a30d925505e9b509] [http-nio-8081-exec-9] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 19:00:39 INFO  [69a95447bbb974e8a30d925505e9b509] [http-nio-8081-exec-9] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 19:05:57 INFO  [69a955856901826431379b0d72c514f5] [http-nio-8081-exec-1] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 19:05:57 INFO  [69a955856901826431379b0d72c514f5] [http-nio-8081-exec-1] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 19:06:11 INFO  [69a955936e01a992a48141589fd0e8da] [http-nio-8081-exec-3] c.p.u.controller.AuthController : Login request
+2026-03-05 19:06:11 INFO  [69a955936e01a992a48141589fd0e8da] [http-nio-8081-exec-3] c.p.u.security.CognitoService : Local profile detected - extracting sub from idToken directly
+2026-03-05 19:06:11 INFO  [69a955936e01a992a48141589fd0e8da] [http-nio-8081-exec-3] c.p.u.security.CognitoService : Token payload: {"at_hash":"jj2IhD4Ddvb4ZUINtJVHfg","sub":"64a80d6c-d021-70fb-4e3a-06f3473d4e61","cognito:groups":["ap-northeast-2_GKpckavjT_Google"],"email_verified":false,"iss":"https:\/\/cognito-idp.ap-northeast-2.amazonaws.com\/ap-northeast-2_GKpckavjT","cognito:username":"google_107679341415152317616","origin_jti":"fcaad985-423a-4fb3-afd7-842b491dc031","aud":"6j5ajq8p3b7d894qt5msp4hair","identities":[{"dateCreated":"1772705160707","userId":"107679341415152317616","providerName":"Google","providerType":"Google","issuer":null,"primary":"true"}],"token_use":"id","auth_time":1772705161,"exp":1772708771,"iat":1772705171,"jti":"1b6b37a0-48d9-414e-a103-41d54e06abf8","email":"jdragon0151@gmail.com"}
+2026-03-05 19:06:11 INFO  [69a955936e01a992a48141589fd0e8da] [http-nio-8081-exec-3] c.p.u.security.CognitoService : Extracted sub from token: 64a80d6c-d021-70fb-4e3a-06f3473d4e61
+2026-03-05 19:06:12 INFO  [69a95594cc0d5e4ec0a20507d23a9a4f] [http-nio-8081-exec-5] c.p.u.controller.AuthController : Check withdrawn request
+2026-03-05 19:06:12 INFO  [69a95594cc0d5e4ec0a20507d23a9a4f] [http-nio-8081-exec-5] c.p.u.security.CognitoService : Extracted email from token: jdragon0151@gmail.com
+2026-03-05 19:06:12 INFO  [69a95594cc0d5e4ec0a20507d23a9a4f] [http-nio-8081-exec-5] c.p.userservice.service.AuthService : Check withdrawn for email: jdragon0151@gmail.com
+2026-03-05 19:06:12 INFO  [69a95594333dda0b35859deae4db1205] [http-nio-8081-exec-6] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 19:06:12 INFO  [69a95594333dda0b35859deae4db1205] [http-nio-8081-exec-6] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 19:06:19 INFO  [69a9559be790654b4dd207bc5a8ff6ab] [http-nio-8081-exec-8] c.p.u.controller.AuthController : Signup request: test
+2026-03-05 19:06:19 INFO  [69a9559be790654b4dd207bc5a8ff6ab] [http-nio-8081-exec-8] c.p.u.security.CognitoService : Local profile detected - extracting sub from idToken directly
+2026-03-05 19:06:19 INFO  [69a9559be790654b4dd207bc5a8ff6ab] [http-nio-8081-exec-8] c.p.u.security.CognitoService : Token payload: {"at_hash":"jj2IhD4Ddvb4ZUINtJVHfg","sub":"64a80d6c-d021-70fb-4e3a-06f3473d4e61","cognito:groups":["ap-northeast-2_GKpckavjT_Google"],"email_verified":false,"iss":"https:\/\/cognito-idp.ap-northeast-2.amazonaws.com\/ap-northeast-2_GKpckavjT","cognito:username":"google_107679341415152317616","origin_jti":"fcaad985-423a-4fb3-afd7-842b491dc031","aud":"6j5ajq8p3b7d894qt5msp4hair","identities":[{"dateCreated":"1772705160707","userId":"107679341415152317616","providerName":"Google","providerType":"Google","issuer":null,"primary":"true"}],"token_use":"id","auth_time":1772705161,"exp":1772708771,"iat":1772705171,"jti":"1b6b37a0-48d9-414e-a103-41d54e06abf8","email":"jdragon0151@gmail.com"}
+2026-03-05 19:06:19 INFO  [69a9559be790654b4dd207bc5a8ff6ab] [http-nio-8081-exec-8] c.p.u.security.CognitoService : Extracted sub from token: 64a80d6c-d021-70fb-4e3a-06f3473d4e61
+2026-03-05 19:10:05 INFO  [] [SpringApplicationShutdownHook] n.d.b.g.s.s.GrpcServerLifecycle : Completed gRPC server shutdown
+2026-03-05 19:10:05 INFO  [] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown : Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-05 19:10:05 INFO  [] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown : Graceful shutdown complete
+2026-03-05 19:10:05 INFO  [] [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-05 19:10:05 INFO  [] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown initiated...
+2026-03-05 19:10:05 INFO  [] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown completed.
+2026-03-05 19:10:14 INFO  [] [background-preinit] o.h.validator.internal.util.Version : HV000001: Hibernate Validator 8.0.2.Final
+2026-03-05 19:10:15 INFO  [] [main] c.p.b.PlanitBaseTemplateApplication : Starting PlanitBaseTemplateApplication using Java 17.0.16 with PID 49304 (/Users/jybill01/Folder/02_Study/03_AWS_Cloud_School/03_Project/03_project/Full/PlanIt-User-svc/build/classes/java/main started by jybill01 in /Users/jybill01/Folder/02_Study/03_AWS_Cloud_School/03_Project/03_project/Full/PlanIt-User-svc)
+2026-03-05 19:10:15 INFO  [] [main] c.p.b.PlanitBaseTemplateApplication : No active profile set, falling back to 1 default profile: "default"
+2026-03-05 19:10:16 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-05 19:10:16 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-05 19:10:16 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 98 ms. Found 6 JPA repository interfaces.
+2026-03-05 19:10:16 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-05 19:10:16 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-03-05 19:10:16 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2026-03-05 19:10:17 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port 8081 (http)
+2026-03-05 19:10:17 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Initializing ProtocolHandler ["http-nio-8081"]
+2026-03-05 19:10:17 INFO  [] [main] o.a.catalina.core.StandardService : Starting service [Tomcat]
+2026-03-05 19:10:17 INFO  [] [main] o.a.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2026-03-05 19:10:17 INFO  [] [main] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext
+2026-03-05 19:10:17 INFO  [] [main] o.s.b.w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1810 ms
+2026-03-05 19:10:17 INFO  [] [main] o.h.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-05 19:10:17 INFO  [] [main] org.hibernate.Version : HHH000412: Hibernate ORM core version 6.6.8.Final
+2026-03-05 19:10:17 INFO  [] [main] o.h.c.i.RegionFactoryInitiator : HHH000026: Second-level cache disabled
+2026-03-05 19:10:17 INFO  [] [main] o.s.o.j.p.SpringPersistenceUnitInfo : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-05 19:10:17 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
+2026-03-05 19:10:17 INFO  [] [main] com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@37d3e740
+2026-03-05 19:10:17 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed.
+2026-03-05 19:10:17 INFO  [] [main] o.hibernate.orm.connections.pooling : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 12.2.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-05 19:10:18 INFO  [] [main] o.h.e.t.j.p.i.JtaPlatformInitiator : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-05 19:10:18 INFO  [] [main] o.s.o.j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-05 19:10:18 INFO  [] [main] o.s.d.j.r.query.QueryEnhancerFactory : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-05 19:10:19 WARN  [] [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-05 19:10:19 WARN  [] [main] o.s.b.a.s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 3d9046d6-f7a3-4d4f-a261-e575c2ff4591
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-03-05 19:10:19 INFO  [] [main] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-03-05 19:10:19 INFO  [] [main] n.d.b.g.c.a.GrpcClientAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyChannelFactory + InProcessChannelFactory
+2026-03-05 19:10:19 INFO  [] [main] o.s.b.a.e.web.EndpointLinksResolver : Exposing 2 endpoints beneath base path '/api/v1/users/actuator'
+2026-03-05 19:10:20 INFO  [] [main] n.d.b.g.s.a.GrpcServerFactoryAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyGrpcServerFactory
+2026-03-05 19:10:20 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Starting ProtocolHandler ["http-nio-8081"]
+2026-03-05 19:10:20 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat started on port 8081 (http) with context path '/'
+2026-03-05 19:10:20 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
+2026-03-05 19:10:20 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
+2026-03-05 19:10:20 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
+2026-03-05 19:10:20 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9090
+2026-03-05 19:10:20 INFO  [] [main] c.p.b.PlanitBaseTemplateApplication : Started PlanitBaseTemplateApplication in 6.154 seconds (process running for 7.297)
+2026-03-05 19:10:22 INFO  [] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-05 19:10:22 INFO  [] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet'
+2026-03-05 19:10:22 INFO  [] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet : Completed initialization in 4 ms
+2026-03-05 19:10:22 INFO  [69a9568ec1ba205b210f26d54eb4591f] [http-nio-8081-exec-1] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 19:10:22 INFO  [69a9568ec1ba205b210f26d54eb4591f] [http-nio-8081-exec-1] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 19:10:25 INFO  [69a9569159f4ca5e973abedb889db6f7] [http-nio-8081-exec-2] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 19:10:25 INFO  [69a9569159f4ca5e973abedb889db6f7] [http-nio-8081-exec-2] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 19:10:28 INFO  [69a9569492ad7f24bb722329fabe3789] [http-nio-8081-exec-3] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 19:10:28 INFO  [69a9569492ad7f24bb722329fabe3789] [http-nio-8081-exec-3] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 19:10:32 INFO  [69a9569850c00461b48caab3c29c5002] [http-nio-8081-exec-4] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 19:10:32 INFO  [69a9569850c00461b48caab3c29c5002] [http-nio-8081-exec-4] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 19:10:40 INFO  [69a956a0630393f85a51935689d75b18] [http-nio-8081-exec-6] c.p.u.controller.AuthController : Signup request: Test
+2026-03-05 19:10:40 INFO  [69a956a0630393f85a51935689d75b18] [http-nio-8081-exec-6] c.p.u.security.CognitoService : Local profile detected - extracting sub from idToken directly
+2026-03-05 19:10:40 INFO  [69a956a0630393f85a51935689d75b18] [http-nio-8081-exec-6] c.p.u.security.CognitoService : Token payload: {"at_hash":"jj2IhD4Ddvb4ZUINtJVHfg","sub":"64a80d6c-d021-70fb-4e3a-06f3473d4e61","cognito:groups":["ap-northeast-2_GKpckavjT_Google"],"email_verified":false,"iss":"https:\/\/cognito-idp.ap-northeast-2.amazonaws.com\/ap-northeast-2_GKpckavjT","cognito:username":"google_107679341415152317616","origin_jti":"fcaad985-423a-4fb3-afd7-842b491dc031","aud":"6j5ajq8p3b7d894qt5msp4hair","identities":[{"dateCreated":"1772705160707","userId":"107679341415152317616","providerName":"Google","providerType":"Google","issuer":null,"primary":"true"}],"token_use":"id","auth_time":1772705161,"exp":1772708771,"iat":1772705171,"jti":"1b6b37a0-48d9-414e-a103-41d54e06abf8","email":"jdragon0151@gmail.com"}
+2026-03-05 19:10:40 INFO  [69a956a0630393f85a51935689d75b18] [http-nio-8081-exec-6] c.p.u.security.CognitoService : Extracted sub from token: 64a80d6c-d021-70fb-4e3a-06f3473d4e61
+2026-03-05 19:10:56 INFO  [69a956b00ff22b93540387d5bb23588a] [http-nio-8081-exec-8] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 19:10:56 INFO  [69a956b00ff22b93540387d5bb23588a] [http-nio-8081-exec-8] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 19:11:20 INFO  [69a956c89c6b689ce4e053271648dcc1] [http-nio-8081-exec-10] c.p.u.controller.AuthController : Login request
+2026-03-05 19:11:20 INFO  [69a956c89c6b689ce4e053271648dcc1] [http-nio-8081-exec-10] c.p.u.security.CognitoService : Local profile detected - extracting sub from idToken directly
+2026-03-05 19:11:20 INFO  [69a956c89c6b689ce4e053271648dcc1] [http-nio-8081-exec-10] c.p.u.security.CognitoService : Token payload: {"at_hash":"Lag1XiuIbui8amfyiKhO7w","sub":"64a80d6c-d021-70fb-4e3a-06f3473d4e61","cognito:groups":["ap-northeast-2_GKpckavjT_Google"],"email_verified":false,"iss":"https:\/\/cognito-idp.ap-northeast-2.amazonaws.com\/ap-northeast-2_GKpckavjT","cognito:username":"google_107679341415152317616","origin_jti":"8639abea-0634-4a38-b86b-641b1ac4a936","aud":"6j5ajq8p3b7d894qt5msp4hair","identities":[{"dateCreated":"1772705160707","userId":"107679341415152317616","providerName":"Google","providerType":"Google","issuer":null,"primary":"true"}],"token_use":"id","auth_time":1772705480,"exp":1772709080,"iat":1772705480,"jti":"d618e4a0-b828-4bfc-b534-1aa20be54eb2","email":"jdragon0151@gmail.com"}
+2026-03-05 19:11:20 INFO  [69a956c89c6b689ce4e053271648dcc1] [http-nio-8081-exec-10] c.p.u.security.CognitoService : Extracted sub from token: 64a80d6c-d021-70fb-4e3a-06f3473d4e61
+2026-03-05 19:11:20 INFO  [69a956c857b7d2187126d85be21ce5f1] [http-nio-8081-exec-2] c.p.u.controller.AuthController : Check withdrawn request
+2026-03-05 19:11:20 INFO  [69a956c857b7d2187126d85be21ce5f1] [http-nio-8081-exec-2] c.p.u.security.CognitoService : Extracted email from token: jdragon0151@gmail.com
+2026-03-05 19:11:20 INFO  [69a956c857b7d2187126d85be21ce5f1] [http-nio-8081-exec-2] c.p.userservice.service.AuthService : Check withdrawn for email: jdragon0151@gmail.com
+2026-03-05 19:11:20 INFO  [69a956c8b3c698134e3955d065f874da] [http-nio-8081-exec-3] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 19:11:20 INFO  [69a956c8b3c698134e3955d065f874da] [http-nio-8081-exec-3] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 19:11:28 INFO  [69a956d0f9cd8562c632b9be9c7602aa] [http-nio-8081-exec-5] c.p.u.controller.AuthController : Signup request: test
+2026-03-05 19:11:28 INFO  [69a956d0f9cd8562c632b9be9c7602aa] [http-nio-8081-exec-5] c.p.u.security.CognitoService : Local profile detected - extracting sub from idToken directly
+2026-03-05 19:11:28 INFO  [69a956d0f9cd8562c632b9be9c7602aa] [http-nio-8081-exec-5] c.p.u.security.CognitoService : Token payload: {"at_hash":"Lag1XiuIbui8amfyiKhO7w","sub":"64a80d6c-d021-70fb-4e3a-06f3473d4e61","cognito:groups":["ap-northeast-2_GKpckavjT_Google"],"email_verified":false,"iss":"https:\/\/cognito-idp.ap-northeast-2.amazonaws.com\/ap-northeast-2_GKpckavjT","cognito:username":"google_107679341415152317616","origin_jti":"8639abea-0634-4a38-b86b-641b1ac4a936","aud":"6j5ajq8p3b7d894qt5msp4hair","identities":[{"dateCreated":"1772705160707","userId":"107679341415152317616","providerName":"Google","providerType":"Google","issuer":null,"primary":"true"}],"token_use":"id","auth_time":1772705480,"exp":1772709080,"iat":1772705480,"jti":"d618e4a0-b828-4bfc-b534-1aa20be54eb2","email":"jdragon0151@gmail.com"}
+2026-03-05 19:11:28 INFO  [69a956d0f9cd8562c632b9be9c7602aa] [http-nio-8081-exec-5] c.p.u.security.CognitoService : Extracted sub from token: 64a80d6c-d021-70fb-4e3a-06f3473d4e61
+2026-03-05 19:12:32 INFO  [] [SpringApplicationShutdownHook] n.d.b.g.s.s.GrpcServerLifecycle : Completed gRPC server shutdown
+2026-03-05 19:12:32 INFO  [] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown : Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-05 19:12:32 INFO  [] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown : Graceful shutdown complete
+2026-03-05 19:12:32 INFO  [] [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-05 19:12:32 INFO  [] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown initiated...
+2026-03-05 19:12:32 INFO  [] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown completed.
+2026-03-05 19:15:15 INFO  [] [background-preinit] o.h.validator.internal.util.Version : HV000001: Hibernate Validator 8.0.2.Final
+2026-03-05 19:15:15 INFO  [] [main] c.p.b.PlanitBaseTemplateApplication : Starting PlanitBaseTemplateApplication using Java 17.0.16 with PID 51125 (/Users/jybill01/Folder/02_Study/03_AWS_Cloud_School/03_Project/03_project/Full/PlanIt-User-svc/build/classes/java/main started by jybill01 in /Users/jybill01/Folder/02_Study/03_AWS_Cloud_School/03_Project/03_project/Full/PlanIt-User-svc)
+2026-03-05 19:15:15 INFO  [] [main] c.p.b.PlanitBaseTemplateApplication : No active profile set, falling back to 1 default profile: "default"
+2026-03-05 19:15:16 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-05 19:15:16 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-05 19:15:16 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 73 ms. Found 6 JPA repository interfaces.
+2026-03-05 19:15:16 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-05 19:15:16 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-03-05 19:15:16 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2026-03-05 19:15:16 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port 8081 (http)
+2026-03-05 19:15:16 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Initializing ProtocolHandler ["http-nio-8081"]
+2026-03-05 19:15:16 INFO  [] [main] o.a.catalina.core.StandardService : Starting service [Tomcat]
+2026-03-05 19:15:16 INFO  [] [main] o.a.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2026-03-05 19:15:16 INFO  [] [main] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext
+2026-03-05 19:15:16 INFO  [] [main] o.s.b.w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1572 ms
+2026-03-05 19:15:17 INFO  [] [main] o.h.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-05 19:15:17 INFO  [] [main] org.hibernate.Version : HHH000412: Hibernate ORM core version 6.6.8.Final
+2026-03-05 19:15:17 INFO  [] [main] o.h.c.i.RegionFactoryInitiator : HHH000026: Second-level cache disabled
+2026-03-05 19:15:17 INFO  [] [main] o.s.o.j.p.SpringPersistenceUnitInfo : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-05 19:15:17 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
+2026-03-05 19:15:17 INFO  [] [main] com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@2748bd6c
+2026-03-05 19:15:17 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed.
+2026-03-05 19:15:17 INFO  [] [main] o.hibernate.orm.connections.pooling : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 12.2.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-05 19:15:17 INFO  [] [main] o.h.e.t.j.p.i.JtaPlatformInitiator : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-05 19:15:18 INFO  [] [main] o.s.o.j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-05 19:15:18 INFO  [] [main] o.s.d.j.r.query.QueryEnhancerFactory : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-05 19:15:19 WARN  [] [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-05 19:15:19 WARN  [] [main] o.s.b.a.s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 9ac1b3ce-bc7a-424e-a36b-5e1a79cb7312
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-03-05 19:15:19 INFO  [] [main] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-03-05 19:15:20 INFO  [] [main] n.d.b.g.c.a.GrpcClientAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyChannelFactory + InProcessChannelFactory
+2026-03-05 19:15:20 INFO  [] [main] o.s.b.a.e.web.EndpointLinksResolver : Exposing 2 endpoints beneath base path '/api/v1/users/actuator'
+2026-03-05 19:15:20 INFO  [] [main] n.d.b.g.s.a.GrpcServerFactoryAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyGrpcServerFactory
+2026-03-05 19:15:20 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Starting ProtocolHandler ["http-nio-8081"]
+2026-03-05 19:15:20 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat started on port 8081 (http) with context path '/'
+2026-03-05 19:15:20 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
+2026-03-05 19:15:20 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
+2026-03-05 19:15:20 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
+2026-03-05 19:15:20 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9090
+2026-03-05 19:15:20 INFO  [] [main] c.p.b.PlanitBaseTemplateApplication : Started PlanitBaseTemplateApplication in 6.296 seconds (process running for 7.075)
+2026-03-05 19:16:04 INFO  [] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-05 19:16:04 INFO  [] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet'
+2026-03-05 19:16:04 INFO  [] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet : Completed initialization in 13 ms
+2026-03-05 19:16:05 INFO  [69a957e4e1d9c499e29cbb49bb62185f] [http-nio-8081-exec-1] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 19:16:05 INFO  [69a957e4e1d9c499e29cbb49bb62185f] [http-nio-8081-exec-1] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 19:16:36 INFO  [69a95804526cbcadf41c439b93bdd8d0] [http-nio-8081-exec-3] c.p.u.controller.AuthController : Login request
+2026-03-05 19:16:36 INFO  [69a95804526cbcadf41c439b93bdd8d0] [http-nio-8081-exec-3] c.p.u.security.CognitoService : Local profile detected - extracting sub from idToken directly
+2026-03-05 19:16:36 INFO  [69a95804526cbcadf41c439b93bdd8d0] [http-nio-8081-exec-3] c.p.u.security.CognitoService : Token payload: {"at_hash":"fRguV8KWvasSPMs3s3bKrQ","sub":"24f8cd2c-b031-70cb-402e-d942bd86a1a7","cognito:groups":["ap-northeast-2_GKpckavjT_Google"],"email_verified":false,"iss":"https:\/\/cognito-idp.ap-northeast-2.amazonaws.com\/ap-northeast-2_GKpckavjT","cognito:username":"google_107679341415152317616","origin_jti":"4244ddf1-3a19-43df-b628-24f0c60e868d","aud":"6j5ajq8p3b7d894qt5msp4hair","identities":[{"dateCreated":"1772705785337","userId":"107679341415152317616","providerName":"Google","providerType":"Google","issuer":null,"primary":"true"}],"token_use":"id","auth_time":1772705786,"exp":1772709396,"iat":1772705796,"jti":"960157e1-d606-4853-bbb8-7f2323f40e8d","email":"jdragon0151@gmail.com"}
+2026-03-05 19:16:36 INFO  [69a95804526cbcadf41c439b93bdd8d0] [http-nio-8081-exec-3] c.p.u.security.CognitoService : Extracted sub from token: 24f8cd2c-b031-70cb-402e-d942bd86a1a7
+2026-03-05 19:16:36 INFO  [69a9580451e626015f98c1c0876dc68b] [http-nio-8081-exec-5] c.p.u.controller.AuthController : Check withdrawn request
+2026-03-05 19:16:36 INFO  [69a9580451e626015f98c1c0876dc68b] [http-nio-8081-exec-5] c.p.u.security.CognitoService : Extracted email from token: jdragon0151@gmail.com
+2026-03-05 19:16:36 INFO  [69a9580451e626015f98c1c0876dc68b] [http-nio-8081-exec-5] c.p.userservice.service.AuthService : Check withdrawn for email: jdragon0151@gmail.com
+2026-03-05 19:16:37 INFO  [69a9580558f567733ec88e03b28f1522] [http-nio-8081-exec-6] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 19:16:37 INFO  [69a9580558f567733ec88e03b28f1522] [http-nio-8081-exec-6] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 19:16:42 INFO  [69a9580ab391a79c9b7faa114e0c7490] [http-nio-8081-exec-7] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 19:16:42 INFO  [69a9580ab391a79c9b7faa114e0c7490] [http-nio-8081-exec-7] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 19:16:42 INFO  [69a9580ab5544734c50b1bbc953d5c80] [http-nio-8081-exec-8] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 19:16:42 INFO  [69a9580ab5544734c50b1bbc953d5c80] [http-nio-8081-exec-8] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 19:16:42 INFO  [69a9580a752b6eec7358ee428929f668] [http-nio-8081-exec-9] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 19:16:42 INFO  [69a9580a752b6eec7358ee428929f668] [http-nio-8081-exec-9] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 19:16:42 INFO  [69a9580a8086eff088dc78bc6c2de693] [http-nio-8081-exec-10] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 19:16:42 INFO  [69a9580a8086eff088dc78bc6c2de693] [http-nio-8081-exec-10] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 19:16:43 INFO  [69a9580bc4f4bb5f53a27110960ef7cf] [http-nio-8081-exec-1] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 19:16:43 INFO  [69a9580bc4f4bb5f53a27110960ef7cf] [http-nio-8081-exec-1] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 19:19:44 INFO  [] [SpringApplicationShutdownHook] n.d.b.g.s.s.GrpcServerLifecycle : Completed gRPC server shutdown
+2026-03-05 19:19:44 INFO  [] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown : Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-05 19:19:44 INFO  [] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown : Graceful shutdown complete
+2026-03-05 19:19:44 INFO  [] [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-05 19:19:44 INFO  [] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown initiated...
+2026-03-05 19:19:44 INFO  [] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown completed.
+2026-03-05 19:19:50 INFO  [] [background-preinit] o.h.validator.internal.util.Version : HV000001: Hibernate Validator 8.0.2.Final
+2026-03-05 19:19:50 INFO  [] [main] c.p.b.PlanitBaseTemplateApplication : Starting PlanitBaseTemplateApplication using Java 17.0.16 with PID 52760 (/Users/jybill01/Folder/02_Study/03_AWS_Cloud_School/03_Project/03_project/Full/PlanIt-User-svc/build/classes/java/main started by jybill01 in /Users/jybill01/Folder/02_Study/03_AWS_Cloud_School/03_Project/03_project/Full/PlanIt-User-svc)
+2026-03-05 19:19:50 INFO  [] [main] c.p.b.PlanitBaseTemplateApplication : No active profile set, falling back to 1 default profile: "default"
+2026-03-05 19:19:51 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-05 19:19:51 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-05 19:19:51 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 110 ms. Found 6 JPA repository interfaces.
+2026-03-05 19:19:51 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-05 19:19:51 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-03-05 19:19:51 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 0 Redis repository interfaces.
+2026-03-05 19:19:52 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port 8081 (http)
+2026-03-05 19:19:52 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Initializing ProtocolHandler ["http-nio-8081"]
+2026-03-05 19:19:52 INFO  [] [main] o.a.catalina.core.StandardService : Starting service [Tomcat]
+2026-03-05 19:19:52 INFO  [] [main] o.a.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2026-03-05 19:19:52 INFO  [] [main] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext
+2026-03-05 19:19:52 INFO  [] [main] o.s.b.w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1525 ms
+2026-03-05 19:19:52 INFO  [] [main] o.h.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-05 19:19:52 INFO  [] [main] org.hibernate.Version : HHH000412: Hibernate ORM core version 6.6.8.Final
+2026-03-05 19:19:52 INFO  [] [main] o.h.c.i.RegionFactoryInitiator : HHH000026: Second-level cache disabled
+2026-03-05 19:19:52 INFO  [] [main] o.s.o.j.p.SpringPersistenceUnitInfo : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-05 19:19:52 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
+2026-03-05 19:19:52 INFO  [] [main] com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@386f88b3
+2026-03-05 19:19:52 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed.
+2026-03-05 19:19:52 INFO  [] [main] o.hibernate.orm.connections.pooling : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 12.2.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-05 19:19:53 INFO  [] [main] o.h.e.t.j.p.i.JtaPlatformInitiator : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-05 19:19:53 INFO  [] [main] o.s.o.j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-05 19:19:54 INFO  [] [main] o.s.d.j.r.query.QueryEnhancerFactory : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-05 19:19:55 WARN  [] [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-05 19:19:55 WARN  [] [main] o.s.b.a.s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 6b9dc563-0869-4808-9481-4848bcfc2c41
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-03-05 19:19:55 INFO  [] [main] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-03-05 19:19:55 INFO  [] [main] n.d.b.g.c.a.GrpcClientAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyChannelFactory + InProcessChannelFactory
+2026-03-05 19:19:55 INFO  [] [main] o.s.b.a.e.web.EndpointLinksResolver : Exposing 2 endpoints beneath base path '/api/v1/users/actuator'
+2026-03-05 19:19:55 INFO  [] [main] n.d.b.g.s.a.GrpcServerFactoryAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyGrpcServerFactory
+2026-03-05 19:19:55 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Starting ProtocolHandler ["http-nio-8081"]
+2026-03-05 19:19:55 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat started on port 8081 (http) with context path '/'
+2026-03-05 19:19:55 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
+2026-03-05 19:19:55 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
+2026-03-05 19:19:55 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
+2026-03-05 19:19:55 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9090
+2026-03-05 19:19:55 INFO  [] [main] c.p.b.PlanitBaseTemplateApplication : Started PlanitBaseTemplateApplication in 6.02 seconds (process running for 6.424)
+2026-03-05 19:20:02 INFO  [] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-05 19:20:02 INFO  [] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet'
+2026-03-05 19:20:02 INFO  [] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet : Completed initialization in 4 ms
+2026-03-05 19:20:02 INFO  [69a958d2692e3839aeb1f05134ae0ae3] [http-nio-8081-exec-1] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 19:20:02 INFO  [69a958d2692e3839aeb1f05134ae0ae3] [http-nio-8081-exec-1] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 19:20:15 INFO  [69a958df7bfe2b3b97d395b5ad22dd68] [http-nio-8081-exec-3] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 19:20:15 INFO  [69a958df7bfe2b3b97d395b5ad22dd68] [http-nio-8081-exec-3] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 19:20:35 INFO  [69a958f366c961fd2a14750dfac83d2b] [http-nio-8081-exec-5] c.p.u.controller.AuthController : Login request
+2026-03-05 19:20:35 INFO  [69a958f366c961fd2a14750dfac83d2b] [http-nio-8081-exec-5] c.p.u.security.CognitoService : Local profile detected - extracting sub from idToken directly
+2026-03-05 19:20:35 INFO  [69a958f366c961fd2a14750dfac83d2b] [http-nio-8081-exec-5] c.p.u.security.CognitoService : Token payload: {"at_hash":"914chUU_vozxc5FnhIH0-w","sub":"24f8cd2c-b031-70cb-402e-d942bd86a1a7","cognito:groups":["ap-northeast-2_GKpckavjT_Google"],"email_verified":false,"iss":"https:\/\/cognito-idp.ap-northeast-2.amazonaws.com\/ap-northeast-2_GKpckavjT","cognito:username":"google_107679341415152317616","origin_jti":"e1f16837-145f-4341-98e8-053a33f7dcc7","aud":"6j5ajq8p3b7d894qt5msp4hair","identities":[{"dateCreated":"1772705785337","userId":"107679341415152317616","providerName":"Google","providerType":"Google","issuer":null,"primary":"true"}],"token_use":"id","auth_time":1772706034,"exp":1772709635,"iat":1772706035,"jti":"5acb9bc0-19e8-4b53-8651-1a5f2b4ad05b","email":"jdragon0151@gmail.com"}
+2026-03-05 19:20:35 INFO  [69a958f366c961fd2a14750dfac83d2b] [http-nio-8081-exec-5] c.p.u.security.CognitoService : Extracted sub from token: 24f8cd2c-b031-70cb-402e-d942bd86a1a7
+2026-03-05 19:20:35 INFO  [69a958f372b84be88048ba28185c5718] [http-nio-8081-exec-7] c.p.u.controller.AuthController : Check withdrawn request
+2026-03-05 19:20:35 INFO  [69a958f372b84be88048ba28185c5718] [http-nio-8081-exec-7] c.p.u.security.CognitoService : Extracted email from token: jdragon0151@gmail.com
+2026-03-05 19:20:35 INFO  [69a958f372b84be88048ba28185c5718] [http-nio-8081-exec-7] c.p.userservice.service.AuthService : Check withdrawn for email: jdragon0151@gmail.com
+2026-03-05 19:20:35 INFO  [69a958f3714a7f772edb2e5349f0bf3e] [http-nio-8081-exec-8] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 19:20:35 INFO  [69a958f3714a7f772edb2e5349f0bf3e] [http-nio-8081-exec-8] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 19:20:44 INFO  [69a958fc14fb734d42471c17c18bdb49] [http-nio-8081-exec-10] c.p.u.controller.AuthController : Signup request: Test
+2026-03-05 19:20:44 INFO  [69a958fc14fb734d42471c17c18bdb49] [http-nio-8081-exec-10] c.p.u.security.CognitoService : Local profile detected - extracting sub from idToken directly
+2026-03-05 19:20:44 INFO  [69a958fc14fb734d42471c17c18bdb49] [http-nio-8081-exec-10] c.p.u.security.CognitoService : Token payload: {"at_hash":"914chUU_vozxc5FnhIH0-w","sub":"24f8cd2c-b031-70cb-402e-d942bd86a1a7","cognito:groups":["ap-northeast-2_GKpckavjT_Google"],"email_verified":false,"iss":"https:\/\/cognito-idp.ap-northeast-2.amazonaws.com\/ap-northeast-2_GKpckavjT","cognito:username":"google_107679341415152317616","origin_jti":"e1f16837-145f-4341-98e8-053a33f7dcc7","aud":"6j5ajq8p3b7d894qt5msp4hair","identities":[{"dateCreated":"1772705785337","userId":"107679341415152317616","providerName":"Google","providerType":"Google","issuer":null,"primary":"true"}],"token_use":"id","auth_time":1772706034,"exp":1772709635,"iat":1772706035,"jti":"5acb9bc0-19e8-4b53-8651-1a5f2b4ad05b","email":"jdragon0151@gmail.com"}
+2026-03-05 19:20:44 INFO  [69a958fc14fb734d42471c17c18bdb49] [http-nio-8081-exec-10] c.p.u.security.CognitoService : Extracted sub from token: 24f8cd2c-b031-70cb-402e-d942bd86a1a7
+2026-03-05 19:22:32 INFO  [] [SpringApplicationShutdownHook] n.d.b.g.s.s.GrpcServerLifecycle : Completed gRPC server shutdown
+2026-03-05 19:22:32 INFO  [] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown : Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-05 19:22:32 INFO  [] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown : Graceful shutdown complete
+2026-03-05 19:22:33 INFO  [] [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-05 19:22:33 INFO  [] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown initiated...
+2026-03-05 19:22:33 INFO  [] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown completed.
+2026-03-05 19:22:39 INFO  [] [background-preinit] o.h.validator.internal.util.Version : HV000001: Hibernate Validator 8.0.2.Final
+2026-03-05 19:22:39 INFO  [] [main] c.p.b.PlanitBaseTemplateApplication : Starting PlanitBaseTemplateApplication using Java 17.0.16 with PID 53511 (/Users/jybill01/Folder/02_Study/03_AWS_Cloud_School/03_Project/03_project/Full/PlanIt-User-svc/build/classes/java/main started by jybill01 in /Users/jybill01/Folder/02_Study/03_AWS_Cloud_School/03_Project/03_project/Full/PlanIt-User-svc)
+2026-03-05 19:22:39 INFO  [] [main] c.p.b.PlanitBaseTemplateApplication : No active profile set, falling back to 1 default profile: "default"
+2026-03-05 19:22:40 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-05 19:22:40 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-05 19:22:41 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 121 ms. Found 6 JPA repository interfaces.
+2026-03-05 19:22:41 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-05 19:22:41 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-03-05 19:22:41 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2026-03-05 19:22:41 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port 8081 (http)
+2026-03-05 19:22:41 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Initializing ProtocolHandler ["http-nio-8081"]
+2026-03-05 19:22:41 INFO  [] [main] o.a.catalina.core.StandardService : Starting service [Tomcat]
+2026-03-05 19:22:41 INFO  [] [main] o.a.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2026-03-05 19:22:41 INFO  [] [main] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext
+2026-03-05 19:22:41 INFO  [] [main] o.s.b.w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1914 ms
+2026-03-05 19:22:41 INFO  [] [main] o.h.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-05 19:22:41 INFO  [] [main] org.hibernate.Version : HHH000412: Hibernate ORM core version 6.6.8.Final
+2026-03-05 19:22:41 INFO  [] [main] o.h.c.i.RegionFactoryInitiator : HHH000026: Second-level cache disabled
+2026-03-05 19:22:41 INFO  [] [main] o.s.o.j.p.SpringPersistenceUnitInfo : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-05 19:22:41 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
+2026-03-05 19:22:42 INFO  [] [main] com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@a08e41b
+2026-03-05 19:22:42 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed.
+2026-03-05 19:22:42 INFO  [] [main] o.hibernate.orm.connections.pooling : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 12.2.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-05 19:22:42 INFO  [] [main] o.h.e.t.j.p.i.JtaPlatformInitiator : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-05 19:22:43 INFO  [] [main] o.s.o.j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-05 19:22:43 INFO  [] [main] o.s.d.j.r.query.QueryEnhancerFactory : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-05 19:22:44 WARN  [] [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-05 19:22:44 WARN  [] [main] o.s.b.a.s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 4e1cc9ed-4580-4fe1-bb2f-71490b4669fb
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-03-05 19:22:44 INFO  [] [main] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-03-05 19:22:44 INFO  [] [main] n.d.b.g.c.a.GrpcClientAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyChannelFactory + InProcessChannelFactory
+2026-03-05 19:22:44 INFO  [] [main] o.s.b.a.e.web.EndpointLinksResolver : Exposing 2 endpoints beneath base path '/api/v1/users/actuator'
+2026-03-05 19:22:44 INFO  [] [main] n.d.b.g.s.a.GrpcServerFactoryAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyGrpcServerFactory
+2026-03-05 19:22:45 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Starting ProtocolHandler ["http-nio-8081"]
+2026-03-05 19:22:45 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat started on port 8081 (http) with context path '/'
+2026-03-05 19:22:45 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
+2026-03-05 19:22:45 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
+2026-03-05 19:22:45 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
+2026-03-05 19:22:45 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9090
+2026-03-05 19:22:45 INFO  [] [main] c.p.b.PlanitBaseTemplateApplication : Started PlanitBaseTemplateApplication in 6.075 seconds (process running for 6.826)
+2026-03-05 19:25:09 INFO  [] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-05 19:25:09 INFO  [] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet'
+2026-03-05 19:25:09 INFO  [] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet : Completed initialization in 9 ms
+2026-03-05 19:25:09 INFO  [69a95a05c839e2084d78871958218490] [http-nio-8081-exec-1] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 19:25:09 INFO  [69a95a05c839e2084d78871958218490] [http-nio-8081-exec-1] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 19:27:37 WARN  [] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m24s866ms).
+2026-03-05 19:43:27 WARN  [] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m50s211ms).
+2026-03-05 20:49:20 WARN  [] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h5m23s630ms).
+2026-03-05 20:50:33 WARN  [] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m12s330ms).
+2026-03-05 20:56:03 WARN  [] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m30s444ms).
+2026-03-05 20:56:11 INFO  [69a96f5bf44cebb176ee91b9b6959c53] [http-nio-8081-exec-3] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 20:56:11 INFO  [69a96f5bf44cebb176ee91b9b6959c53] [http-nio-8081-exec-3] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 21:26:25 WARN  [] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=29m52s460ms).
+2026-03-05 22:10:11 WARN  [] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=43m15s549ms).
+2026-03-05 22:12:19 INFO  [69a981337a89e3fbd81ee673a75cb295] [http-nio-8081-exec-5] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 22:12:20 INFO  [69a981337a89e3fbd81ee673a75cb295] [http-nio-8081-exec-5] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 22:16:56 INFO  [] [SpringApplicationShutdownHook] n.d.b.g.s.s.GrpcServerLifecycle : Completed gRPC server shutdown
+2026-03-05 22:16:56 INFO  [] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown : Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-05 22:16:56 INFO  [] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown : Graceful shutdown complete
+2026-03-05 22:16:56 INFO  [] [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-05 22:16:56 INFO  [] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown initiated...
+2026-03-05 22:16:56 INFO  [] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown completed.
+2026-03-05 22:22:01 INFO  [] [background-preinit] o.h.validator.internal.util.Version : HV000001: Hibernate Validator 8.0.2.Final
+2026-03-05 22:22:01 INFO  [] [main] c.p.b.PlanitBaseTemplateApplication : Starting PlanitBaseTemplateApplication using Java 17.0.16 with PID 62356 (/Users/jybill01/Folder/02_Study/03_AWS_Cloud_School/03_Project/03_project/Full/PlanIt-User-svc/build/classes/java/main started by jybill01 in /Users/jybill01/Folder/02_Study/03_AWS_Cloud_School/03_Project/03_project/Full/PlanIt-User-svc)
+2026-03-05 22:22:01 INFO  [] [main] c.p.b.PlanitBaseTemplateApplication : No active profile set, falling back to 1 default profile: "default"
+2026-03-05 22:22:02 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-05 22:22:02 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-05 22:22:02 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 93 ms. Found 6 JPA repository interfaces.
+2026-03-05 22:22:02 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-05 22:22:02 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-03-05 22:22:02 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2026-03-05 22:22:03 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port 8081 (http)
+2026-03-05 22:22:03 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Initializing ProtocolHandler ["http-nio-8081"]
+2026-03-05 22:22:03 INFO  [] [main] o.a.catalina.core.StandardService : Starting service [Tomcat]
+2026-03-05 22:22:03 INFO  [] [main] o.a.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2026-03-05 22:22:03 INFO  [] [main] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext
+2026-03-05 22:22:03 INFO  [] [main] o.s.b.w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1365 ms
+2026-03-05 22:22:03 INFO  [] [main] o.h.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-05 22:22:03 INFO  [] [main] org.hibernate.Version : HHH000412: Hibernate ORM core version 6.6.8.Final
+2026-03-05 22:22:03 INFO  [] [main] o.h.c.i.RegionFactoryInitiator : HHH000026: Second-level cache disabled
+2026-03-05 22:22:03 INFO  [] [main] o.s.o.j.p.SpringPersistenceUnitInfo : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-05 22:22:03 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
+2026-03-05 22:22:03 INFO  [] [main] com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@3fb0d9de
+2026-03-05 22:22:03 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed.
+2026-03-05 22:22:03 INFO  [] [main] o.hibernate.orm.connections.pooling : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 12.2.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-05 22:22:04 INFO  [] [main] o.h.e.t.j.p.i.JtaPlatformInitiator : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-05 22:22:05 INFO  [] [main] o.s.o.j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-05 22:22:05 INFO  [] [main] o.s.d.j.r.query.QueryEnhancerFactory : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-05 22:22:06 WARN  [] [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-05 22:22:06 WARN  [] [main] o.s.b.a.s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: e051fe3f-4918-4db9-8ea9-7c78e37ab921
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-03-05 22:22:06 INFO  [] [main] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-03-05 22:22:06 INFO  [] [main] n.d.b.g.c.a.GrpcClientAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyChannelFactory + InProcessChannelFactory
+2026-03-05 22:22:06 INFO  [] [main] o.s.b.a.e.web.EndpointLinksResolver : Exposing 2 endpoints beneath base path '/api/v1/users/actuator'
+2026-03-05 22:22:07 INFO  [] [main] n.d.b.g.s.a.GrpcServerFactoryAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyGrpcServerFactory
+2026-03-05 22:22:07 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Starting ProtocolHandler ["http-nio-8081"]
+2026-03-05 22:22:07 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat started on port 8081 (http) with context path '/'
+2026-03-05 22:22:07 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
+2026-03-05 22:22:07 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
+2026-03-05 22:22:07 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
+2026-03-05 22:22:07 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9090
+2026-03-05 22:22:07 INFO  [] [main] c.p.b.PlanitBaseTemplateApplication : Started PlanitBaseTemplateApplication in 6.331 seconds (process running for 6.81)
+2026-03-05 22:22:59 INFO  [] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-05 22:22:59 INFO  [] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet'
+2026-03-05 22:22:59 INFO  [] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet : Completed initialization in 9 ms
+2026-03-05 22:22:59 INFO  [69a983b37ee5991d5cbf29c1d28cfb58] [http-nio-8081-exec-1] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 22:22:59 INFO  [69a983b37ee5991d5cbf29c1d28cfb58] [http-nio-8081-exec-1] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 22:23:08 INFO  [69a983bc94aa0740de096f4452b6c07c] [http-nio-8081-exec-3] c.p.u.controller.AuthController : Login request
+2026-03-05 22:23:08 INFO  [69a983bc94aa0740de096f4452b6c07c] [http-nio-8081-exec-3] c.p.u.security.CognitoService : Local profile detected - extracting sub from idToken directly
+2026-03-05 22:23:08 INFO  [69a983bc94aa0740de096f4452b6c07c] [http-nio-8081-exec-3] c.p.u.security.CognitoService : Token payload: {"at_hash":"1H9nd9S9GnQc73YJ9GZ59w","sub":"24f8cd2c-b031-70cb-402e-d942bd86a1a7","cognito:groups":["ap-northeast-2_GKpckavjT_Google"],"email_verified":false,"iss":"https:\/\/cognito-idp.ap-northeast-2.amazonaws.com\/ap-northeast-2_GKpckavjT","cognito:username":"google_107679341415152317616","origin_jti":"4e5fd38d-55c1-4b42-92e1-230af5769a28","aud":"6j5ajq8p3b7d894qt5msp4hair","identities":[{"dateCreated":"1772705785337","userId":"107679341415152317616","providerName":"Google","providerType":"Google","issuer":null,"primary":"true"}],"token_use":"id","auth_time":1772716987,"exp":1772720588,"iat":1772716988,"jti":"20a2d635-63ce-4428-b796-fe439d7f3166","email":"jdragon0151@gmail.com"}
+2026-03-05 22:23:08 INFO  [69a983bc94aa0740de096f4452b6c07c] [http-nio-8081-exec-3] c.p.u.security.CognitoService : Extracted sub from token: 24f8cd2c-b031-70cb-402e-d942bd86a1a7
+2026-03-05 22:23:08 INFO  [69a983bcd2f0ca95941c6be9450a58b2] [http-nio-8081-exec-5] c.p.u.controller.AuthController : Check withdrawn request
+2026-03-05 22:23:08 INFO  [69a983bcd2f0ca95941c6be9450a58b2] [http-nio-8081-exec-5] c.p.u.security.CognitoService : Extracted email from token: jdragon0151@gmail.com
+2026-03-05 22:23:08 INFO  [69a983bcd2f0ca95941c6be9450a58b2] [http-nio-8081-exec-5] c.p.userservice.service.AuthService : Check withdrawn for email: jdragon0151@gmail.com
+2026-03-05 22:23:08 INFO  [69a983bcfe0113a1f874040aa4bbed6c] [http-nio-8081-exec-6] c.p.u.controller.CategoryController : Get categories request
+2026-03-05 22:23:08 INFO  [69a983bcfe0113a1f874040aa4bbed6c] [http-nio-8081-exec-6] c.p.u.service.CategoryService : Fetching categories from database
+2026-03-05 22:23:17 INFO  [69a983c5ed45d360b77a77ae75309ca9] [http-nio-8081-exec-8] c.p.u.controller.AuthController : Signup request: test
+2026-03-05 22:23:17 INFO  [69a983c5ed45d360b77a77ae75309ca9] [http-nio-8081-exec-8] c.p.u.security.CognitoService : Local profile detected - extracting sub from idToken directly
+2026-03-05 22:23:17 INFO  [69a983c5ed45d360b77a77ae75309ca9] [http-nio-8081-exec-8] c.p.u.security.CognitoService : Token payload: {"at_hash":"1H9nd9S9GnQc73YJ9GZ59w","sub":"24f8cd2c-b031-70cb-402e-d942bd86a1a7","cognito:groups":["ap-northeast-2_GKpckavjT_Google"],"email_verified":false,"iss":"https:\/\/cognito-idp.ap-northeast-2.amazonaws.com\/ap-northeast-2_GKpckavjT","cognito:username":"google_107679341415152317616","origin_jti":"4e5fd38d-55c1-4b42-92e1-230af5769a28","aud":"6j5ajq8p3b7d894qt5msp4hair","identities":[{"dateCreated":"1772705785337","userId":"107679341415152317616","providerName":"Google","providerType":"Google","issuer":null,"primary":"true"}],"token_use":"id","auth_time":1772716987,"exp":1772720588,"iat":1772716988,"jti":"20a2d635-63ce-4428-b796-fe439d7f3166","email":"jdragon0151@gmail.com"}
+2026-03-05 22:23:17 INFO  [69a983c5ed45d360b77a77ae75309ca9] [http-nio-8081-exec-8] c.p.u.security.CognitoService : Extracted sub from token: 24f8cd2c-b031-70cb-402e-d942bd86a1a7
+2026-03-05 22:28:47 INFO  [] [SpringApplicationShutdownHook] n.d.b.g.s.s.GrpcServerLifecycle : Completed gRPC server shutdown
+2026-03-05 22:28:47 INFO  [] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown : Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-05 22:28:47 INFO  [] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown : Graceful shutdown complete
+2026-03-05 22:28:47 INFO  [] [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-05 22:28:47 INFO  [] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown initiated...
+2026-03-05 22:28:47 INFO  [] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown completed.

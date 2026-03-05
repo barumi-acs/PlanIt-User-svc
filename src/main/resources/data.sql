@@ -1,7 +1,5 @@
--- 초기 데이터 삽입
-
--- 8대 관심 카테고리 삽입 (Schedule-svc category_list 기준)
-INSERT INTO interest_category (name, color_hex, description) VALUES
+-- 관심 카테고리 초기 데이터 (Schedule-svc category_list 기준)
+INSERT IGNORE INTO interest_category (name, color_hex, description) VALUES
 ('직무/커리어', '#4F46E5', '직무 역량과 커리어 개발을 위한 활동'),
 ('어학/자격증', '#0EA5E9', '어학 공부 및 자격증 취득 활동'),
 ('독서/학습', '#10B981', '독서와 학습을 통한 지식 습득'),
@@ -11,8 +9,8 @@ INSERT INTO interest_category (name, color_hex, description) VALUES
 ('취미/관계', '#EC4899', '취미 활동과 대인관계 향상'),
 ('기타', '#6B7280', '기타 자기계발 활동');
 
--- 약관 데이터 삽입
-INSERT INTO terms (title, content, version, is_required, type) VALUES
+-- 약관 초기 데이터
+INSERT IGNORE INTO terms (title, content, version, is_required, type) VALUES
 ('서비스 이용약관', '본 약관은 PlanIt 서비스 이용에 관한 기본적인 사항을 규정합니다...', 'v1.0', TRUE, 'SERVICE'),
 ('개인정보 처리방침', 'PlanIt은 이용자의 개인정보를 중요시하며, 개인정보 보호법을 준수합니다...', 'v1.0', TRUE, 'PRIVACY'),
 ('90일 보관 정책', '탈퇴 후 90일간 개인정보를 보관하며, 이후 자동으로 삭제됩니다...', 'v1.0', FALSE, 'RETENTION'),
