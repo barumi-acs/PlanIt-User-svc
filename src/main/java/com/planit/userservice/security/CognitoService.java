@@ -1,5 +1,7 @@
 package com.planit.userservice.security;
 
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import com.planit.basetemplate.common.CustomException;
 import com.planit.basetemplate.common.ErrorCode;
 import lombok.extern.slf4j.Slf4j;
@@ -7,12 +9,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import software.amazon.awssdk.services.cognitoidentityprovider.CognitoIdentityProviderClient;
 import software.amazon.awssdk.services.cognitoidentityprovider.model.AdminDeleteUserRequest;
-import software.amazon.awssdk.services.cognitoidentityprovider.model.GetUserRequest;
-import software.amazon.awssdk.services.cognitoidentityprovider.model.GetUserResponse;
-
-import java.util.Base64;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @Slf4j
 @Service
@@ -32,43 +28,63 @@ public class CognitoService {
         this.isLocalProfile = "local-no-redis".equals(activeProfile) || "dummy".equals(userPoolId);
     }
 
+    /**
+     * Cognito ID Token을 검증하고 sub claim을 추출합니다.
+     * 
+     * @param idToken Cognito ID Token (JWT 형식)
+     * @return cognito sub (사용자 고유 식별자)
+     * @throws CustomException ID Token이 유효하지 않거나 sub claim이 없는 경우
+     */
     public String validateIdTokenAndGetCognitoSub(String idToken) {
-        if (isLocalProfile) {
-            log.info("Local profile detected - extracting sub from idToken directly");
-            return extractSubFromToken(idToken);
-        }
-
         try {
-            GetUserRequest request = GetUserRequest.builder()
-                    .accessToken(idToken)
-                    .build();
-            GetUserResponse response = cognitoClient.getUser(request);
-            return response.username();
+            // JWT 디코딩
+            DecodedJWT jwt = JWT.decode(idToken);
+            
+            // token_use 확인 (ID Token인지 검증)
+            String tokenUse = jwt.getClaim("token_use").asString();
+            if (!"id".equals(tokenUse)) {
+                log.error("Invalid token_use: expected 'id', but got '{}'", tokenUse);
+                throw new CustomException(ErrorCode.COGNITO_INVALID_TOKEN);
+            }
+            
+            // sub claim 추출
+            String sub = jwt.getClaim("sub").asString();
+            if (sub == null || sub.isEmpty()) {
+                log.error("sub claim is missing in ID Token");
+                throw new CustomException(ErrorCode.COGNITO_INVALID_TOKEN);
+            }
+            
+            log.info("Successfully validated ID Token and extracted sub: {}", sub);
+            return sub;
+        } catch (CustomException e) {
+            throw e;
         } catch (Exception e) {
             log.error("Cognito ID Token validation failed: {}", e.getMessage());
             throw new CustomException(ErrorCode.COGNITO_INVALID_TOKEN);
         }
     }
 
-    // ✅ 추가 - idToken에서 email 추출
+    /**
+     * ID Token에서 email claim을 추출합니다.
+     * 
+     * @param idToken Cognito ID Token (JWT 형식)
+     * @return email 주소
+     * @throws CustomException ID Token이 유효하지 않거나 email claim이 없는 경우
+     */
     public String extractEmailFromToken(String idToken) {
         try {
-            String[] parts = idToken.split("\\.");
-            if (parts.length < 2) {
+            // JWT 디코딩
+            DecodedJWT jwt = JWT.decode(idToken);
+            
+            // email claim 추출
+            String email = jwt.getClaim("email").asString();
+            if (email == null || email.isEmpty()) {
+                log.error("email claim is missing in ID Token");
                 throw new CustomException(ErrorCode.COGNITO_INVALID_TOKEN);
             }
-
-            byte[] decodedBytes = Base64.getUrlDecoder().decode(parts[1]);
-            String payload = new String(decodedBytes);
-
-            Matcher matcher = Pattern.compile("\"email\"\\s*:\\s*\"([^\"]+)\"").matcher(payload);
-            if (matcher.find()) {
-                String email = matcher.group(1);
-                log.info("Extracted email from token: {}", email);
-                return email;
-            }
-
-            throw new CustomException(ErrorCode.COGNITO_INVALID_TOKEN);
+            
+            log.info("Extracted email from token: {}", email);
+            return email;
         } catch (CustomException e) {
             throw e;
         } catch (Exception e) {
@@ -77,33 +93,11 @@ public class CognitoService {
         }
     }
 
-    private String extractSubFromToken(String idToken) {
-        try {
-            String[] parts = idToken.split("\\.");
-            if (parts.length < 2) {
-                throw new CustomException(ErrorCode.COGNITO_INVALID_TOKEN);
-            }
-
-            byte[] decodedBytes = Base64.getUrlDecoder().decode(parts[1]);
-            String payload = new String(decodedBytes);
-            log.info("Token payload: {}", payload);
-
-            Matcher matcher = Pattern.compile("\"sub\"\\s*:\\s*\"([^\"]+)\"").matcher(payload);
-            if (matcher.find()) {
-                String sub = matcher.group(1);
-                log.info("Extracted sub from token: {}", sub);
-                return sub;
-            }
-
-            throw new CustomException(ErrorCode.COGNITO_INVALID_TOKEN);
-        } catch (CustomException e) {
-            throw e;
-        } catch (Exception e) {
-            log.error("Failed to extract sub from token: {}", e.getMessage());
-            throw new CustomException(ErrorCode.COGNITO_INVALID_TOKEN);
-        }
-    }
-
+    /**
+     * Cognito User Pool에서 사용자를 삭제합니다.
+     * 
+     * @param cognitoSub 삭제할 사용자의 cognito sub
+     */
     public void deleteUser(String cognitoSub) {
         if (isLocalProfile) {
             log.info("Local profile detected - skipping Cognito user deletion");
