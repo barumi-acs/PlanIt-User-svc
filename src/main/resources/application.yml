@@ -27,7 +27,7 @@ spring:
     hibernate:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
-      ddl-auto: create
+      ddl-auto: update
     defer-datasource-initialization: true  # data.sql을 Hibernate DDL 이후에 실행
     show-sql: true
     properties:
@@ -57,11 +57,11 @@ jwt:
 aws:
   region: ${AWS_REGION:ap-northeast-2}
   credentials:
-    access-key: ${AWS_ACCESS_KEY:dummy}
-    secret-key: ${AWS_SECRET_KEY:dummy}
+    access-key: ${AWS_ACCESS_KEY}
+    secret-key: ${AWS_SECRET_KEY}
   cognito:
-    user-pool-id: ${COGNITO_USER_POOL_ID:dummy}
-    client-id: ${COGNITO_CLIENT_ID:dummy}
+    user-pool-id: ${COGNITO_USER_POOL_ID:ap-northeast-2_GKpckavjT}
+    client-id: ${COGNITO_CLIENT_ID:6j5ajq8p3b7d894qt5msp4hair}
     region: ${AWS_REGION:ap-northeast-2}
 
 
