@@ -23,31 +23,30 @@ public class CognitoService {
     private final boolean isLocalProfile;
 
     public CognitoService(
-        CognitoIdentityProviderClient cognitoClient,
-        @Value("${aws.cognito.user-pool-id}") String userPoolId,
-        @Value("${spring.profiles.active:default}") String activeProfile
-    ) {
+            CognitoIdentityProviderClient cognitoClient,
+            @Value("${aws.cognito.user-pool-id}") String userPoolId,
+            @Value("${spring.profiles.active:default}") String activeProfile) {
         this.cognitoClient = cognitoClient;
         this.userPoolId = userPoolId;
         this.isLocalProfile = "local-no-redis".equals(activeProfile) || "dummy".equals(userPoolId);
     }
 
     public String validateIdTokenAndGetCognitoSub(String idToken) {
-        if (isLocalProfile) {
-            log.info("Local profile detected - extracting sub from idToken directly");
-            return extractSubFromToken(idToken);
-        }
+        // ID Token은 JWT 형식이므로 로컬 메모리에서 물리적으로 파싱하여 sub를 추출할 수 있습니다.
+        // GetUser API는 Access Token을 요구하므로 ID Token을 보내면 Invalid Access Token 오류가
+        // 발생합니다.
+        log.info("Extracting sub from ID Token locally to avoid unnecessary network overhead and token type mismatch");
+        return extractSubFromToken(idToken);
+    }
 
-        try {
-            GetUserRequest request = GetUserRequest.builder()
-                    .accessToken(idToken)
-                    .build();
-            GetUserResponse response = cognitoClient.getUser(request);
-            return response.username();
-        } catch (Exception e) {
-            log.error("Cognito ID Token validation failed: {}", e.getMessage());
-            throw new CustomException(ErrorCode.COGNITO_INVALID_TOKEN);
-        }
+    // JWT Base64URL 패딩 보정 (JWT는 표준상 패딩 없이 인코딩됨)
+    private String addBase64Padding(String base64) {
+        int remainder = base64.length() % 4;
+        if (remainder == 2)
+            return base64 + "==";
+        if (remainder == 3)
+            return base64 + "=";
+        return base64;
     }
 
     // ✅ 추가 - idToken에서 email 추출
@@ -58,7 +57,7 @@ public class CognitoService {
                 throw new CustomException(ErrorCode.COGNITO_INVALID_TOKEN);
             }
 
-            byte[] decodedBytes = Base64.getUrlDecoder().decode(parts[1]);
+            byte[] decodedBytes = Base64.getUrlDecoder().decode(addBase64Padding(parts[1]));
             String payload = new String(decodedBytes);
 
             Matcher matcher = Pattern.compile("\"email\"\\s*:\\s*\"([^\"]+)\"").matcher(payload);
@@ -84,7 +83,7 @@ public class CognitoService {
                 throw new CustomException(ErrorCode.COGNITO_INVALID_TOKEN);
             }
 
-            byte[] decodedBytes = Base64.getUrlDecoder().decode(parts[1]);
+            byte[] decodedBytes = Base64.getUrlDecoder().decode(addBase64Padding(parts[1]));
             String payload = new String(decodedBytes);
             log.info("Token payload: {}", payload);
 

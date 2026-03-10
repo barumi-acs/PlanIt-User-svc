@@ -126,11 +126,12 @@ public class UserController {
     })
     @GetMapping("/search")
     public ApiResponse<List<UserResponse>> searchUsers(
+            @Parameter(hidden = true) @AuthenticationPrincipal String myUserId, // 🎯 현재 로그인한 유저 ID 추가
             @Parameter(description = "Nickname to search (partial match)", required = true)
             @RequestParam String nickname
     ) {
-        log.info("Search users request: {}", nickname);
-        List<UserResponse> response = userService.searchUsers(nickname);
+        log.info("Search users request: {} by {}", nickname, myUserId);
+        List<UserResponse> response = userService.searchUsers(nickname, myUserId);
         return ApiResponse.success(HttpStatus.OK.value(), "User search successful", response);
     }
 }

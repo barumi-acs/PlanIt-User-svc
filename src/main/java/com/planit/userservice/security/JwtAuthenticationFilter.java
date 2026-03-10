@@ -35,27 +35,45 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             return;
         }
 
-        try {
-            String token = extractTokenFromRequest(request);
+        String userId = null;
+        String token = extractTokenFromRequest(request);
+        String headerUserId = request.getHeader("X-User-Id");
 
-            if (token != null && jwtProvider.validateToken(token)) {
-                String userId = jwtProvider.getUserIdFromToken(token);
-
-                UsernamePasswordAuthenticationToken authentication =
-                        new UsernamePasswordAuthenticationToken(
-                                userId,
-                                null,
-                                Collections.emptyList()
-                        );
-
-                authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-                SecurityContextHolder.getContext().setAuthentication(authentication);
+        // 1. 먼저 유효한 JWT 토큰이 있는지 확인
+        if (token != null) {
+            try {
+                if (jwtProvider.validateToken(token)) {
+                    userId = jwtProvider.getUserIdFromToken(token);
+                }
+            } catch (Exception e) {
+                log.warn("JWT validation failed, will check for X-User-Id header: {}", e.getMessage());
             }
-        } catch (Exception e) {
-            log.error("JWT authentication failed: {}", e.getMessage());
+        }
+
+        // 2. 토큰이 없거나 유효하지 않은 경우 X-User-Id 헤더 확인 (개발 환경용)
+        if (userId == null && StringUtils.hasText(headerUserId)) {
+            log.info("Using X-User-Id header for authentication: {}", headerUserId);
+            userId = headerUserId;
+        }
+
+        // 3. 인증 정보 설정
+        if (userId != null) {
+            setAuthentication(userId, request);
         }
 
         filterChain.doFilter(request, response);
+    }
+
+    private void setAuthentication(String userId, HttpServletRequest request) {
+        UsernamePasswordAuthenticationToken authentication =
+                new UsernamePasswordAuthenticationToken(
+                        userId,
+                        null,
+                        Collections.emptyList()
+                );
+
+        authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+        SecurityContextHolder.getContext().setAuthentication(authentication);
     }
 
     private boolean shouldNotFilter(String path) {

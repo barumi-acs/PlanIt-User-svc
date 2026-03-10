@@ -74,4 +74,14 @@ public interface FriendRepository extends JpaRepository<FriendEntity, Long> {
         @Param("requesterId") String requesterId,
         @Param("approverId") String approverId
     );
+
+    /**
+     * 두 사용자가 서로 '수락된' 친구 관계인지 확인
+     */
+    @Query("SELECT CASE WHEN COUNT(f) > 0 THEN true ELSE false END FROM FriendEntity f " +
+           "WHERE ((f.requester.userId = :user1 AND f.approver.userId = :user2) " +
+           "OR (f.requester.userId = :user2 AND f.approver.userId = :user1)) " +
+           "AND f.status = 'ACCEPTED' " +
+           "AND f.deletedAt IS NULL")
+    boolean existsAcceptedFriendship(@Param("user1") String user1, @Param("user2") String user2);
 }

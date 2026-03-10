@@ -113,12 +113,12 @@ public class UserService {
     }
     
     @Transactional(readOnly = true)
-    public List<UserResponse> searchUsers(String nickname) {
-        // 닉네임 부분 일치 검색 (최대 20개)
-        List<UserEntity> users = userRepository
-                .searchByNickname(nickname);
+    public List<UserResponse> searchUsers(String nickname, String myUserId) {
+        // 닉네임 부분 일치 검색
+        List<UserEntity> users = userRepository.searchByNickname(nickname);
         
         return users.stream()
+                .filter(user -> !user.getUserId().equals(myUserId)) // 🎯 나 자신 제외
                 .limit(20)
                 .map(user -> {
                     // 관심 카테고리 조회
