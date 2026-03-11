@@ -32,7 +32,7 @@ public class UserService {
     public UserResponse getProfile(String userId) {
         // 사용자 조회
         UserEntity user = userRepository.findById(userId)
-                .orElseThrow(() -> new CustomException(ErrorCode.USER_NOT_FOUND));
+                .orElseThrow(() -> new CustomException(ErrorCode.U4041));
         
         // 관심 카테고리 조회
         List<UserInterestEntity> interests = userInterestRepository.findByUserIdAndDeletedAtIsNull(userId);
@@ -62,12 +62,12 @@ public class UserService {
     public UserResponse updateProfile(String userId, UpdateProfileRequest request) {
         // 사용자 조회
         UserEntity user = userRepository.findById(userId)
-                .orElseThrow(() -> new CustomException(ErrorCode.USER_NOT_FOUND));
+                .orElseThrow(() -> new CustomException(ErrorCode.U4041));
         
         // 닉네임 중복 체크 (자신 제외)
         if (!user.getNickname().equals(request.getNickname()) &&
             userRepository.existsByNickname(request.getNickname())) {
-            throw new CustomException(ErrorCode.USER_NICKNAME_DUPLICATED);
+            throw new CustomException(ErrorCode.U4001);
         }
         
         // User 엔티티 업데이트
@@ -80,7 +80,7 @@ public class UserService {
         // 새 관심 카테고리 저장
         for (Long categoryId : request.getInterestCategoryIds()) {
             InterestCategoryEntity category = interestCategoryRepository.findById(categoryId)
-                    .orElseThrow(() -> new CustomException(ErrorCode.USER_CATEGORY_NOT_FOUND));
+                    .orElseThrow(() -> new CustomException(ErrorCode.U4042));
             UserInterestEntity interest = UserInterestEntity.builder()
                     .user(user)
                     .category(category)

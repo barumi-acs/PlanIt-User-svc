@@ -6,6 +6,8 @@ import com.planit.userservice.dto.CheckWithdrawnRequest;
 import com.planit.userservice.dto.CheckWithdrawnResponse;
 import com.planit.userservice.dto.LoginRequest;
 import com.planit.userservice.dto.SignupRequest;
+import com.planit.userservice.dto.TokenRefreshRequest;
+import com.planit.userservice.dto.TokenRefreshResponse;
 import com.planit.userservice.service.AuthService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -159,5 +161,33 @@ public class AuthController {
         log.info("Withdraw request: {}", userId);
         authService.withdraw(userId);
         return ApiResponse.success(HttpStatus.OK.value(), "Account deletion successful", null);
+    }
+
+    @Operation(
+            summary = "Access Token 재발급",
+            description = """
+                    Refresh Token으로 새로운 Access Token + Refresh Token 발급 (Token Rotation).
+                    
+                    - Refresh Token 유효성 검증
+                    - Redis에 저장된 토큰과 일치 여부 확인
+                    - 새로운 Access Token(15분) + Refresh Token(7일) 발급
+                    - Redis의 기존 Refresh Token을 새 토큰으로 교체
+                    """
+    )
+    @ApiResponses({
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(
+                    responseCode = "200",
+                    description = "Token refresh successful"
+            ),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(
+                    responseCode = "401",
+                    description = "Invalid or expired refresh token"
+            )
+    })
+    @PostMapping("/refresh")
+    public ApiResponse<TokenRefreshResponse> refreshToken(@Valid @RequestBody TokenRefreshRequest request) {
+        log.info("Token refresh request");
+        TokenRefreshResponse response = authService.refreshToken(request);
+        return ApiResponse.success(HttpStatus.OK.value(), "Token refresh successful", response);
     }
 }

@@ -29,14 +29,14 @@ public class FriendService {
     public void sendFriendRequest(String requesterId, String targetUserId) {
         // 자기 자신에게 요청 불가
         if (requesterId.equals(targetUserId)) {
-            throw new CustomException(ErrorCode.USER_FRIEND_REQUEST_INVALID);
+            throw new CustomException(ErrorCode.U4009);
         }
         
         // 대상 사용자 존재 확인
         UserEntity requester = userRepository.findById(requesterId)
-                .orElseThrow(() -> new CustomException(ErrorCode.USER_NOT_FOUND));
+                .orElseThrow(() -> new CustomException(ErrorCode.U4041));
         UserEntity target = userRepository.findById(targetUserId)
-                .orElseThrow(() -> new CustomException(ErrorCode.USER_NOT_FOUND));
+                .orElseThrow(() -> new CustomException(ErrorCode.U4041));
         
         // 이미 친구 관계가 있는지 확인
         boolean alreadyExists = friendRepository.existsByRequesterIdAndApproverIdAndDeletedAtIsNull(
@@ -45,7 +45,7 @@ public class FriendService {
                         targetUserId, requesterId);
         
         if (alreadyExists) {
-            throw new CustomException(ErrorCode.USER_FRIEND_REQUEST_ALREADY_EXISTS);
+            throw new CustomException(ErrorCode.U4010);
         }
         
         // 친구 요청 생성
@@ -64,11 +64,11 @@ public class FriendService {
     public void processFriendRequest(String userId, ProcessFriendRequestRequest request) {
         // 친구 요청 조회
         FriendEntity friendship = friendRepository.findById(request.getFriendshipId())
-                .orElseThrow(() -> new CustomException(ErrorCode.USER_FRIEND_REQUEST_NOT_FOUND));
+                .orElseThrow(() -> new CustomException(ErrorCode.U4043));
         
         // 권한 확인 (approver만 처리 가능)
         if (!friendship.getApprover().getUserId().equals(userId)) {
-            throw new CustomException(ErrorCode.USER_FRIEND_REQUEST_NOT_FOUND);
+            throw new CustomException(ErrorCode.U4043);
         }
         
         // 상태 업데이트
@@ -135,11 +135,11 @@ public class FriendService {
     public void deleteFriend(String userId, Long friendshipId) {
         // 친구 관계 조회
         FriendEntity friendship = friendRepository.findById(friendshipId)
-                .orElseThrow(() -> new CustomException(ErrorCode.USER_FRIEND_NOT_FOUND));
+                .orElseThrow(() -> new CustomException(ErrorCode.U4044));
         
         // 권한 확인
         if (!friendship.getRequesterId().equals(userId) && !friendship.getApproverId().equals(userId)) {
-            throw new CustomException(ErrorCode.USER_FRIEND_NOT_FOUND);
+            throw new CustomException(ErrorCode.U4044);
         }
         
         // Soft Delete

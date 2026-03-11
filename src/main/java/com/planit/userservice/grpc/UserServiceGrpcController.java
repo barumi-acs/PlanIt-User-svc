@@ -1,12 +1,17 @@
 package com.planit.userservice.grpc;
 
+import com.planit.grpc.user.CategoryInfo;
 import com.planit.grpc.user.CheckFriendshipRequest;
 import com.planit.grpc.user.CheckFriendshipResponse;
+import com.planit.grpc.user.GetCategoriesRequest;
+import com.planit.grpc.user.GetCategoriesResponse;
 import com.planit.grpc.user.GetUserNamesRequest;
 import com.planit.grpc.user.GetUserNamesResponse;
 import com.planit.grpc.user.UserServiceGrpc;
+import com.planit.userservice.entity.InterestCategoryEntity;
 import com.planit.userservice.entity.UserEntity;
 import com.planit.userservice.repository.FriendRepository;
+import com.planit.userservice.repository.InterestCategoryRepository;
 import com.planit.userservice.repository.UserRepository;
 import io.grpc.stub.StreamObserver;
 import lombok.RequiredArgsConstructor;
@@ -27,6 +32,7 @@ public class UserServiceGrpcController extends UserServiceGrpc.UserServiceImplBa
 
     private final FriendRepository friendRepository;
     private final UserRepository userRepository;
+    private final InterestCategoryRepository interestCategoryRepository;
 
     @Override
     public void checkFriendship(CheckFriendshipRequest request, StreamObserver<CheckFriendshipResponse> responseObserver) {
@@ -65,5 +71,30 @@ public class UserServiceGrpcController extends UserServiceGrpc.UserServiceImplBa
         responseObserver.onCompleted();
 
         log.info("✅ gRPC 유저 닉네임 조회 응답: {}건 완료", userNames.size());
+    }
+
+    @Override
+    public void getCategories(GetCategoriesRequest request, StreamObserver<GetCategoriesResponse> responseObserver) {
+        log.info("📡 gRPC 카테고리 목록 조회 요청");
+
+        List<InterestCategoryEntity> categories = interestCategoryRepository.findAll();
+
+        List<CategoryInfo> categoryInfos = categories.stream()
+                .map(c -> CategoryInfo.newBuilder()
+                        .setCategoryId(c.getCategoryId())
+                        .setName(c.getName())
+                        .setColorHex(c.getColorHex() != null ? c.getColorHex() : "")
+                        .setDescription(c.getDescription() != null ? c.getDescription() : "")
+                        .build())
+                .collect(Collectors.toList());
+
+        GetCategoriesResponse response = GetCategoriesResponse.newBuilder()
+                .addAllCategories(categoryInfos)
+                .build();
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+
+        log.info("✅ gRPC 카테고리 조회 응답: {}개", categoryInfos.size());
     }
 }

@@ -54,7 +54,7 @@ public class CognitoService {
         try {
             String[] parts = idToken.split("\\.");
             if (parts.length < 2) {
-                throw new CustomException(ErrorCode.COGNITO_INVALID_TOKEN);
+                throw new CustomException(ErrorCode.U4013);
             }
 
             byte[] decodedBytes = Base64.getUrlDecoder().decode(addBase64Padding(parts[1]));
@@ -67,12 +67,12 @@ public class CognitoService {
                 return email;
             }
 
-            throw new CustomException(ErrorCode.COGNITO_INVALID_TOKEN);
+            throw new CustomException(ErrorCode.U4013);
         } catch (CustomException e) {
             throw e;
         } catch (Exception e) {
             log.error("Failed to extract email from token: {}", e.getMessage());
-            throw new CustomException(ErrorCode.COGNITO_INVALID_TOKEN);
+            throw new CustomException(ErrorCode.U4013);
         }
     }
 
@@ -80,7 +80,7 @@ public class CognitoService {
         try {
             String[] parts = idToken.split("\\.");
             if (parts.length < 2) {
-                throw new CustomException(ErrorCode.COGNITO_INVALID_TOKEN);
+                throw new CustomException(ErrorCode.U4013);
             }
 
             byte[] decodedBytes = Base64.getUrlDecoder().decode(addBase64Padding(parts[1]));
@@ -94,12 +94,12 @@ public class CognitoService {
                 return sub;
             }
 
-            throw new CustomException(ErrorCode.COGNITO_INVALID_TOKEN);
+            throw new CustomException(ErrorCode.U4013);
         } catch (CustomException e) {
             throw e;
         } catch (Exception e) {
             log.error("Failed to extract sub from token: {}", e.getMessage());
-            throw new CustomException(ErrorCode.COGNITO_INVALID_TOKEN);
+            throw new CustomException(ErrorCode.U4013);
         }
     }
 

@@ -42,10 +42,13 @@ public class SecurityConfig {
                         .requestMatchers(
                                 "/api/v1/users/auth/login",
                                 "/api/v1/users/auth/signup",
-                                "/api/v1/users/auth/check-withdrawn",  // ✅ 추가
+                                "/api/v1/users/auth/check-withdrawn",
+                                "/api/v1/users/auth/refresh",
                                 "/api/v1/users/categories",
                                 "/api/v1/users/terms",
-                                "/api/v1/users/actuator/**"
+                                "/api/v1/users/actuator/**",
+                                "/swagger-ui/**",
+                                "/v3/api-docs/**"
                         ).permitAll()
                         .anyRequest().authenticated()
                 );

@@ -13,14 +13,14 @@ import java.time.LocalDateTime;
 @Getter
 @Builder
 public class ApiResponse<T> {
-    private Integer code;
+    private String code;
     private String message;
     private T data;
     private LocalDateTime timestamp;
 
     public static <T> ApiResponse<T> success(T data) {
         return ApiResponse.<T>builder()
-                .code(200)
+                .code("200")
                 .message("Success")
                 .data(data)
                 .timestamp(LocalDateTime.now())
@@ -29,7 +29,7 @@ public class ApiResponse<T> {
     
     public static <T> ApiResponse<T> success(int code, String message, T data) {
         return ApiResponse.<T>builder()
-                .code(code)
+                .code(String.valueOf(code))
                 .message(message)
                 .data(data)
                 .timestamp(LocalDateTime.now())
