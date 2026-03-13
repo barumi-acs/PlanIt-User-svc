@@ -18,7 +18,7 @@ spring:
   
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: ${SPRING_DATASOURCE_URL:jdbc:mariadb://localhost:3306/planit_user_db}
+    url: ${PLANIT_USER_DB_URL:${SPRING_DATASOURCE_URL:jdbc:mariadb://planit-mariadb:3306/planit_user_db}}
     username: ${SPRING_DATASOURCE_USERNAME:root}
     password: ${SPRING_DATASOURCE_PASSWORD:root}
 
@@ -41,7 +41,7 @@ spring:
   # Redis 설정 (Refresh Token 저장용)
   data:
     redis:
-      host: ${REDIS_HOST:localhost}
+      host: ${PLANIT_REDIS_HOST:${REDIS_HOST:planit-redis}}
       port: ${REDIS_PORT:6379}
       password: ${REDIS_PASSWORD:}
       timeout: 3000ms

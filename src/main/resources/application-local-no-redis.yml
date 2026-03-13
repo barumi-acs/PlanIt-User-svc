@@ -2,7 +2,7 @@ spring:
   data:
     redis:
       # Redis 연결 비활성화 (로컬 테스트용)
-      host: localhost
+      host: ${PLANIT_REDIS_HOST:${REDIS_HOST:planit-redis}}
       port: 6379
       timeout: 3000ms
   redis:
