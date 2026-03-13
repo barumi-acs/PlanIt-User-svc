@@ -1,49 +1,25 @@
-# Build stage
-FROM eclipse-temurin:17-jdk-alpine AS builder
-
+FROM --platform=linux/amd64 gradle:8.5-jdk17-alpine AS builder
 WORKDIR /app
 
-# Copy gradle files
-COPY gradlew .
-COPY gradle gradle
-COPY build.gradle .
-COPY settings.gradle .
+COPY . .
 
-# Copy source code
-COPY src src
+RUN ./gradlew clean build -x test
 
-# ✨ [핵심 해결책] 윈도우 줄바꿈(CRLF)을 리눅스(LF)로 강제 변환
-RUN apk add --no-cache dos2unix && dos2unix gradlew
+RUN jlink \
+    --add-modules java.base,java.sql,java.naming,java.desktop,java.management,java.security.jgss,java.instrument,jdk.unsupported,java.prefs,java.xml \
+    --compress=2 \
+    --no-header-files \
+    --no-man-pages \
+    --output /custom-jre
 
-# Build application
-RUN chmod +x gradlew
-# ✨ 에러의 원인이 되던 불필요한 스크립트 제거, 깔끔한 빌드 명령어 사용
-RUN ./gradlew clean bootJar -x test
+# ---------------------------------------------------
 
-# ==========================================
-
-# Runtime stage
-FROM eclipse-temurin:17-jre-alpine
-
+FROM --platform=linux/amd64 alpine:latest
 WORKDIR /app
 
-# Create non-root user
-RUN addgroup -S spring && adduser -S spring -G spring
-USER spring:spring
+COPY --from=builder /custom-jre /custom-jre
+ENV PATH="/custom-jre/bin:$PATH"
 
-# Copy jar from builder
-COPY --from=builder /app/build/libs/*.jar app.jar
+COPY --from=builder /app/build/libs/*-SNAPSHOT.jar app.jar
 
-# Expose ports
-EXPOSE 8080 9090
-
-# Health check
-HEALTHCHECK --interval=30s --timeout=3s --start-period=40s --retries=3 \
-  CMD wget --no-verbose --tries=1 --spider http://localhost:8080/actuator/health || exit 1
-
-ENTRYPOINT ["java", \
-  "-Djava.security.egd=file:/dev/./urandom", \
-  "-XX:+UseContainerSupport", \
-  "-XX:MaxRAMPercentage=75.0", \
-  "-jar", \
-  "app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
