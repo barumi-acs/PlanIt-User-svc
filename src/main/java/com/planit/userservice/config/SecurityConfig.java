@@ -28,7 +28,7 @@ public class SecurityConfig {
     @Value("${spring.profiles.active:default}")
     private String activeProfile;
 
-    @Value("${PLANIT_CORS_ALLOWED_ORIGINS:${CORS_ALLOWED_ORIGINS:https://planit.example.com}}")
+    @Value("${PLANIT_CORS_ALLOWED_ORIGINS:${CORS_ALLOWED_ORIGINS:https://barumi-planit.store}}")
     private String[] allowedOrigins;
 
     @Bean
