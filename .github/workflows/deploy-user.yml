@@ -55,7 +55,7 @@ jobs:
         host: ${{ secrets.BASTION_HOST }}
         username: ${{ secrets.BASTION_USER }}
         key: ${{ secrets.BASTION_SSH_KEY }}
-        envs: ECR_REGISTRY, IMAGE_TAG
+        envs: ECR_REGISTRY, ECR_REPOSITORY, IMAGE_TAG
         script: |
           aws eks update-kubeconfig --name PI-DEV-Cluster --region ap-northeast-2
           kubectl set image deployment/planit-user-deploy user=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -n planit
