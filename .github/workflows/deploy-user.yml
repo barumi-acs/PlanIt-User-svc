@@ -58,4 +58,4 @@ jobs:
         envs: ECR_REGISTRY, IMAGE_TAG
         script: |
           aws eks update-kubeconfig --name PI-DEV-Cluster --region ap-northeast-2
-          kubectl set image deployment/planit-user-deploy planit-user-container=$ECR_REGISTRY/planit-user-repo:$IMAGE_TAG -n planit
+          kubectl set image deployment/planit-user-deploy user=$ECR_REGISTRY/planit-user-repo:$IMAGE_TAG -n planit
