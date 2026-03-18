@@ -46,10 +46,16 @@ jobs:
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
-    - name: 7. Update EKS Pod
+    - name: 7. Update EKS Pod via Bastion
+      uses: appleboy/ssh-action@v1.0.3
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         IMAGE_TAG: ${{ github.sha }}
-      run: |
-        aws eks update-kubeconfig --name PI-DEV-Cluster --region ${{ env.AWS_REGION }}
-        kubectl set image deployment/planit-user-deploy planit-user-container=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -n planit
+      with:
+        host: ${{ secrets.BASTION_HOST }}
+        username: ${{ secrets.BASTION_USER }}
+        key: ${{ secrets.BASTION_SSH_KEY }}
+        envs: ECR_REGISTRY, IMAGE_TAG
+        script: |
+          aws eks update-kubeconfig --name PI-DEV-Cluster --region ap-northeast-2
+          kubectl set image deployment/planit-user-deploy planit-user-container=$ECR_REGISTRY/planit-user-repo:$IMAGE_TAG -n planit
