@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.MDC;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
@@ -22,6 +23,7 @@ import java.util.Collections;
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtProvider jwtProvider;
+    private static final String USER_ID_KEY = "userId";
 
     @Override
     protected void doFilterInternal(
@@ -59,6 +61,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         // 3. 인증 정보 설정
         if (userId != null) {
             setAuthentication(userId, request);
+            // MDC에 userId 저장 (구조화된 로깅)
+            MDC.put(USER_ID_KEY, userId);
         }
 
         filterChain.doFilter(request, response);

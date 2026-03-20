@@ -36,6 +36,7 @@ dependencies {
 
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'io.micrometer:micrometer-tracing-bridge-brave'
+    implementation 'net.logstash.logback:logstash-logback-encoder:7.4'
 
     implementation 'net.devh:grpc-spring-boot-starter:2.15.0.RELEASE'
     implementation 'io.grpc:grpc-stub:1.58.0'
