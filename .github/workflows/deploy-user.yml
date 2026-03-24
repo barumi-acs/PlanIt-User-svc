@@ -2,7 +2,7 @@ name: User Service CI/CD
 
 on:
   push:
-    branches: [ "PF" ]
+    branches: [ "develop" ]
 
 env:
   AWS_REGION: ap-northeast-2
