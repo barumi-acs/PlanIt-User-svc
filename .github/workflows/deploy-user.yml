@@ -7,6 +7,7 @@ on:
 env:
   AWS_REGION: ap-northeast-2
   ECR_REPOSITORY: pi-user
+  SERVICE_NAME: planit-user-svc
 
 jobs:
   build-and-deploy:
@@ -78,3 +79,37 @@ jobs:
         git add .
         git commit -m "chore(user-svc): update image to ${{ github.sha }}"
         git push origin develop
+
+    - name: 🔥 Notify CI Failure
+      if: always() && failure()
+      run: |
+        aws sns publish \
+          --region ${{ env.AWS_REGION }} \
+          --topic-arn ${{ secrets.SNS_TOPIC_ARN }} \
+          --message '{
+            "type": "CI",
+            "service": "'$SERVICE_NAME'",
+            "env": "dev",
+            "stage": "pipeline",
+            "status": "FAILED",
+            "message": "CI pipeline failed (build / docker / manifest / push)",
+            "author": "${{ github.actor }}",
+            "url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          }'
+
+    - name: 🚀 Notify CI Success
+      if: success()
+      run: |
+        aws sns publish \
+          --region ${{ env.AWS_REGION }} \
+          --topic-arn ${{ secrets.SNS_TOPIC_ARN }} \
+          --message '{
+            "type": "CI",
+            "service": "'$SERVICE_NAME'",
+            "env": "dev",
+            "stage": "pipeline",
+            "status": "SUCCESS",
+            "message": "CI pipeline success",
+            "author": "${{ github.actor }}",
+            "url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          }'
