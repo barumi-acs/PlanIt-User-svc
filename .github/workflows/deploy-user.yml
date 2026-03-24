@@ -77,6 +77,14 @@ jobs:
         git config --global user.name "GitHub Action Bot"
         
         git add .
+        
+        if git diff --cached --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "chore(user-svc): update image to ${{ github.sha }}"
+          git push origin develop
+        fi
+        
         git commit -m "chore(user-svc): update image to ${{ github.sha }}"
         git push origin develop
 
