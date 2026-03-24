@@ -85,6 +85,7 @@ jobs:
           git push origin develop
         fi
 
+      # 🔥 실패 알림
     - name: 🔥 Notify CI Failure
       if: always() && failure()
       run: |
@@ -93,15 +94,17 @@ jobs:
           --topic-arn ${{ secrets.SNS_TOPIC_ARN }} \
           --message '{
             "type": "CI",
+            "workflow": "${{ github.workflow }}",
             "service": "'$SERVICE_NAME'",
             "env": "dev",
             "stage": "pipeline",
             "status": "FAILED",
-            "message": "CI failed. See logs: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            "message": "${{ github.event.head_commit.message }}",
             "author": "${{ github.actor }}",
             "url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           }'
 
+      # 🚀 성공 알림
     - name: 🚀 Notify CI Success
       if: success()
       run: |
@@ -110,11 +113,12 @@ jobs:
           --topic-arn ${{ secrets.SNS_TOPIC_ARN }} \
           --message '{
             "type": "CI",
+            "workflow": "${{ github.workflow }}",
             "service": "'$SERVICE_NAME'",
             "env": "dev",
             "stage": "pipeline",
             "status": "SUCCESS",
-            "message": "CI pipeline success",
+            "message": "${{ github.event.head_commit.message }}",
             "author": "${{ github.actor }}",
             "url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           }'
