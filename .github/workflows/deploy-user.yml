@@ -84,9 +84,6 @@ jobs:
           git commit -m "chore(user-svc): update image to ${{ github.sha }}"
           git push origin develop
         fi
-        
-        git commit -m "chore(user-svc): update image to ${{ github.sha }}"
-        git push origin develop
 
     - name: 🔥 Notify CI Failure
       if: always() && failure()
@@ -100,7 +97,7 @@ jobs:
             "env": "dev",
             "stage": "pipeline",
             "status": "FAILED",
-            "message": "CI pipeline failed (build / docker / manifest / push)",
+            "message": "CI failed. See logs: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
             "author": "${{ github.actor }}",
             "url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           }'
