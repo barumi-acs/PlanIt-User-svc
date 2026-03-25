@@ -1,5 +1,7 @@
 package com.planit.userservice.security;
 
+import com.planit.basetemplate.common.CustomException;
+import com.planit.basetemplate.common.ErrorCode;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -47,8 +49,15 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 if (jwtProvider.validateToken(token)) {
                     userId = jwtProvider.getUserIdFromToken(token);
                 }
+            } catch (CustomException e) {
+                String clientIp = getClientIp(request);
+                if (e.getErrorCode() == ErrorCode.C4011) {
+                    log.info("JWT token expired from IP: {}", clientIp);
+                } else if (e.getErrorCode() == ErrorCode.U4015) {
+                    log.warn("JWT token invalid or signature mismatch from IP: {}", clientIp);
+                }
             } catch (Exception e) {
-                log.warn("JWT validation failed, will check for X-User-Id header: {}", e.getMessage());
+                log.warn("JWT validation failed from IP: {}", getClientIp(request));
             }
         }
 
@@ -66,6 +75,14 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         }
 
         filterChain.doFilter(request, response);
+    }
+
+    private String getClientIp(HttpServletRequest request) {
+        String ip = request.getHeader("X-Forwarded-For");
+        if (ip == null || ip.isEmpty()) {
+            ip = request.getRemoteAddr();
+        }
+        return ip;
     }
 
     private void setAuthentication(String userId, HttpServletRequest request) {

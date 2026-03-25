@@ -67,13 +67,10 @@ public class JwtProvider {
                 .parseSignedClaims(token);
             return true;
         } catch (ExpiredJwtException e) {
-            log.error("JWT token expired: {}", e.getMessage());
             throw new CustomException(ErrorCode.C4011);
         } catch (SignatureException | MalformedJwtException e) {
-            log.error("JWT token invalid: {}", e.getMessage());
             throw new CustomException(ErrorCode.U4015);
         } catch (Exception e) {
-            log.error("JWT validation failed: {}", e.getMessage());
             throw new CustomException(ErrorCode.U4015);
         }
     }
@@ -88,13 +85,10 @@ public class JwtProvider {
             
             return claims.getSubject();
         } catch (ExpiredJwtException e) {
-            log.error("JWT token expired: {}", e.getMessage());
             throw new CustomException(ErrorCode.C4011);
         } catch (SignatureException | MalformedJwtException e) {
-            log.error("JWT token invalid: {}", e.getMessage());
             throw new CustomException(ErrorCode.U4015);
         } catch (Exception e) {
-            log.error("JWT parsing failed: {}", e.getMessage());
             throw new CustomException(ErrorCode.U4015);
         }
     }
